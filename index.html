@@ -65,25 +65,25 @@
     [data-theme="dark"] .toggle-knob { transform: translateX(18px); }
     .toggle-icon { font-size: 0.85rem; color: var(--color-text-secondary); }
  
-    /* Hero Space - Faded Personal Background Integrated Style */
+    /* Hero Space with Integrated Portrait Overlay */
     #hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: space-between; position: relative; overflow: hidden; padding-top: 6.5rem; border-bottom: 1px solid var(--color-border); }
-    .hero-bg-photo { position: absolute; inset: 0; background: url('Images/Fotosaya.png.png') center/cover no-repeat; opacity: 0.07; filter: saturate(0.2); z-index: 0; pointer-events: none; }
-    [data-theme="dark"] .hero-bg-photo { opacity: 0.04; filter: saturate(0) brightness(0.8); }
-    .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(var(--color-border) 1px, transparent 1px), linear-gradient(90deg, var(--color-border) 1px, transparent 1px); background-size: 60px 60px; opacity: 0.15; z-index: 1; pointer-events: none; }
+    .hero-bg-photo { position: absolute; inset: 0; background: url('Images/Fotosaya.png.png') center/cover no-repeat; opacity: 0.08; filter: saturate(0.1) contrast(1.1); z-index: 0; pointer-events: none; }
+    [data-theme="dark"] .hero-bg-photo { opacity: 0.05; filter: saturate(0) brightness(0.7); }
+    .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(var(--color-border) 1px, transparent 1px), linear-gradient(90deg, var(--color-border) 1px, transparent 1px); background-size: 60px 60px; opacity: 0.22; z-index: 1; pointer-events: none; }
     .hero-inner { max-width: var(--max); margin: 0 auto; padding: 0 2.5rem; position: relative; z-index: 2; width: 100%; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
     .hero-eyebrow { display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 500; color: var(--color-text-secondary); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem; }
     .hero-heading { font-size: clamp(2.6rem, 5.8vw, 4.5rem); font-weight: 300; line-height: 1.12; letter-spacing: -0.025em; color: var(--color-text-primary); max-width: 920px; margin: 0 auto 1.5rem; }
     .hero-heading strong { font-weight: 600; }
     .hero-sub { font-size: 1.05rem; font-weight: 300; color: var(--color-text-secondary); max-width: 600px; line-height: 1.65; margin: 0 auto 2.5rem; }
-    .hero-actions { display: flex; align-items: center; justify-content: center; gap: 1.2rem; margin-bottom: 2.5rem; }
+    .hero-actions { display: flex; align-items: center; justify-content: center; gap: 1.2rem; margin-bottom: 4.5rem; }
     
-    /* Interactive Vertical 1080x1350 Ratio Card Stack Component */
+    /* Smooth 1080x1350 Fanning Out Card Stack Component */
     .hero-vertical-stack { position: relative; width: 100%; max-width: 800px; height: 180px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: center; z-index: 3; }
-    .v-card { position: absolute; width: 152px; height: 190px; background: var(--color-bg); border-radius: 14px 14px 0 0; border: 1px solid var(--color-border); border-bottom: none; box-shadow: 0 -8px 32px rgba(0,0,0,0.04); overflow: hidden; transform-origin: bottom center; bottom: -50px; opacity: 0; transform: translateY(100px); }
+    .v-card { position: absolute; width: 148px; height: 185px; background: var(--color-bg); border-radius: 14px 14px 0 0; border: 1px solid var(--color-border); border-bottom: none; box-shadow: 0 -8px 32px rgba(0,0,0,0.04); overflow: hidden; transform-origin: bottom center; bottom: -50px; opacity: 0; transform: translateY(100px); cursor: pointer; }
     .v-card img { width: 100%; height: 100%; object-fit: cover; }
-    .v-card:hover { transform: translateY(-60px) scale(1.06) rotate(0deg) !important; z-index: 60 !important; box-shadow: 0 -12px 40px rgba(0,0,0,0.1); border-color: var(--color-text-secondary); }
+    .v-card:hover { transform: translateY(-55px) scale(1.06) rotate(0deg) !important; z-index: 60 !important; box-shadow: 0 -12px 40px rgba(0,0,0,0.1); border-color: var(--color-text-secondary); }
  
-    /* Sections Layout */
+    /* Sections Baseline Setup */
     #about, #experience, #behance, #social, #video, #motion, #contact { border-bottom: 1px solid var(--color-border); }
     #about, #experience, #social { background: var(--color-surface); }
     #portfolio, #motion, #video, #contact { background: var(--color-bg); }
@@ -95,9 +95,9 @@
     .section-title strong { font-weight: 600; }
     .section-line { flex: 1; height: 1px; background: var(--color-border); margin-bottom: 6px; }
 
-    /* About Component */
+    /* About Frame */
     .about-cols { display: grid; grid-template-columns: 300px 1fr; gap: 5rem; align-items: start; }
-    .about-photo-frame { width: 100%; id: aboutPhotoFrame; aspect-ratio: 3/4; background: var(--color-border); border: 1px solid var(--color-border); display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 8px; }
+    .about-photo-frame { width: 100%; aspect-ratio: 3/4; background: var(--color-border); border: 1px solid var(--color-border); overflow: hidden; border-radius: 8px; }
     .about-photo-frame img { width: 100%; height: 100%; object-fit: cover; }
     .about-text-col { padding-top: 0.25rem; }
     .about-bio { font-size: 1.05rem; font-weight: 300; line-height: 1.85; color: var(--color-text-secondary); margin-bottom: 1.5rem; }
@@ -106,7 +106,7 @@
     .skill { padding: 6px 14px; border: 1px solid var(--color-border); border-radius: 4px; font-size: 0.82rem; font-weight: 400; color: var(--color-text-secondary); background: var(--color-bg); transition: all var(--duration-fast) var(--ease-smooth); }
     .skill:hover { border-color: var(--color-text-primary); color: var(--color-text-primary); }
     
-    /* Portfolio Asymmetric Gallery Layout */
+    /* Portfolio Asymmetric Grid Layout System */
     .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5rem 2.5rem; }
     .port-item { background: transparent; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; text-decoration: none; }
     .port-thumb { width: 100%; aspect-ratio: 16/10; background: var(--color-surface); overflow: hidden; border-radius: 8px; border: 1px solid var(--color-border); }
@@ -120,22 +120,22 @@
     .port-item.span-1 { grid-column: span 1; }
     .port-item.span-2 .port-thumb { aspect-ratio: 16/9; }
 
-    /* Lightbox Modal System for Project Slideshow */
-    .lightbox { position: fixed; inset: 0; z-index: 1000; background: rgba(10, 10, 10, 0.95); display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity var(--duration-base) var(--ease-smooth); }
+    /* Lightbox Modal System for Project Slideshow Slides */
+    .lightbox { position: fixed; inset: 0; z-index: 1000; background: rgba(10, 10, 10, 0.96); display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity var(--duration-base) var(--ease-smooth); }
     .lightbox.active { display: flex; opacity: 1; }
     .lightbox-content { position: relative; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center; }
-    .lightbox-img-wrap { width: 100%; max-height: 75vh; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 4px; }
-    .lightbox-img { max-width: 100%; max-height: 75vh; object-fit: contain; transform: scale(0.97); transition: transform var(--duration-base) var(--ease-smooth); }
+    .lightbox-img-wrap { width: 100%; max-height: 74vh; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 4px; }
+    .lightbox-img { max-width: 100%; max-height: 74vh; object-fit: contain; transform: scale(0.97); transition: transform var(--duration-base) var(--ease-smooth); }
     .lightbox.active .lightbox-img { transform: scale(1); }
     .lightbox-caption { color: #FFFFFF; font-size: 0.95rem; margin-top: 1.5rem; text-align: center; font-weight: 300; line-height: 1.5; max-width: 600px; }
-    .lightbox-close { position: absolute; top: -40px; right: 0; background: none; border: none; color: #FFFFFF; font-size: 1.8rem; cursor: pointer; font-family: inherit; font-weight: 300; }
-    .lightbox-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); width: 44px; height: 44px; border-radius: 50%; color: #FFFFFF; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background var(--duration-fast); }
+    .lightbox-close { position: absolute; top: -45px; right: 0; background: none; border: none; color: #FFFFFF; font-size: 2rem; cursor: pointer; font-family: inherit; font-weight: 300; }
+    .lightbox-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); width: 46px; height: 46px; border-radius: 50%; color: #FFFFFF; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background var(--duration-fast); }
     .lightbox-btn:hover { background: rgba(255,255,255,0.2); }
-    .lightbox-prev { left: -60px; }
-    .lightbox-next { right: -60px; }
-    @media(max-width:768px){ .lightbox-prev { left: 0; } .lightbox-next { right: 0; } .lightbox-btn { border-radius:0; width:40px; height:60px; background:rgba(0,0,0,0.4); } }
+    .lightbox-prev { left: -65px; }
+    .lightbox-next { right: -65px; }
+    @media(max-width:768px){ .lightbox-prev { left: 0; } .lightbox-next { right: 0; } .lightbox-btn { border-radius:0; width:40px; height:60px; background:rgba(0,0,0,0.5); } }
 
-    /* Experience System Layout (Renamed Section) */
+    /* Experience System Component Framework */
     .exp-list { display: flex; flex-direction: column; gap: 1.5rem; max-width: 900px; }
     .exp-item { display: grid; grid-template-columns: 72px 1fr; gap: 2rem; background: var(--color-bg); border: 1px solid var(--color-border); padding: 2.2rem; border-radius: 8px; align-items: center; transition: border-color var(--duration-fast) var(--ease-smooth); }
     .exp-item:hover { border-color: var(--color-text-secondary); }
@@ -145,8 +145,8 @@
     .exp-role-row { font-size: 0.85rem; color: var(--color-text-secondary); margin-bottom: 12px; font-weight: 400; }
     .exp-desc { font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.6; font-weight: 300; }
     
-    /* Behance Block */
-    #behance { background: url('Images/Medsos BG.png') center/cover no-repeat; position: relative; }
+    /* Behance Card */
+    #behance { background: url('Images/Medsos%20BG.png') center/cover no-repeat; position: relative; }
     #behance::before { content: ""; position: absolute; inset: 0; background: var(--behance-overlay); z-index: 0; }
     #behance > * { position: relative; z-index: 1; }
     .behance-card { display: flex; align-items: center; justify-content: space-between; gap: 2.5rem; flex-wrap: wrap; background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 6px; padding: 2rem 2.5rem; max-width: 680px; }
@@ -180,7 +180,7 @@
     .motion-desc { font-size: 0.8rem; color: var(--color-text-secondary); }
     .motion-type { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-primary); border: 1px solid var(--color-border); padding: 4px 10px; border-radius: 2px; }
 
-    /* Short Form Interface Component */
+    /* Short Form Interface Slider Panel */
     .social-tabs { display: flex; gap: 4px; margin-bottom: 2.5rem; border-bottom: 1px solid var(--color-border); }
     .social-tab-btn { display: inline-flex; align-items: center; gap: 7px; padding: 9px 18px 11px; font-size: 0.82rem; font-weight: 500; color: var(--color-text-secondary); background: none; border: none; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all var(--duration-fast) var(--ease-smooth); }
     .social-tab-btn:hover { color: var(--color-text-primary); }
@@ -219,7 +219,7 @@
     .video-desc { font-size: 0.8rem; color: var(--color-text-secondary); }
     .video-type { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-primary); border: 1px solid var(--color-border); padding: 4px 10px; border-radius: 2px; }
     
-    /* Lead Capture Contact Area */
+    /* Lead Conversion Layout Area */
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
     .contact-desc { font-size: 1rem; color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 3rem; max-width: 400px; }
     .contact-list { list-style: none; display: flex; flex-direction: column; border-top: 1px solid var(--color-border); }
@@ -243,7 +243,7 @@
     .btn-send { display: inline-flex; align-items: center; gap: 10px; background: var(--color-text-primary); color: var(--color-bg); border: none; padding: 13px 28px; border-radius: 4px; font-size: 0.88rem; font-weight: 500; cursor: pointer; transition: opacity var(--duration-fast) var(--ease-smooth); }
     .btn-send:hover { opacity: 0.85; }
     
-    /* Footer Layout */
+    /* Footer Style */
     footer { border-top: 1px solid var(--color-border); background: var(--color-surface); }
     .footer-inner { max-width: var(--max); margin: 0 auto; padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
     .footer-brand { font-size: 0.9rem; font-weight: 500; color: var(--color-text-primary); text-decoration: none; }
@@ -252,7 +252,7 @@
     .footer-links a { font-size: 0.78rem; color: var(--color-text-secondary); text-decoration: none; transition: color var(--duration-fast) var(--ease-smooth); }
     .footer-links a:hover { color: var(--color-text-primary); }
 
-    /* Layout Responsive System Breakpoints */
+    /* Responsive Queries */
     @media (max-width: 1024px) {
       .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
       .port-item.span-2 { grid-column: span 2; }
@@ -315,20 +315,20 @@
   <div class="hero-bg-photo"></div>
   <div class="hero-grid-bg"></div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">Graphic Designer &amp; Content Creator</div> [cite: 5]
-    <h1 class="hero-heading">Visuals that talk and<br>demand your <strong>attention.</strong></h1> [cite: 8]
-    <p class="hero-sub">Jakarta-based graphic designer &amp; content creator. I help brands show up consistently — across feeds, events, and everything in between.</p> [cite: 10]
+    <div class="hero-eyebrow">Graphic Designer &amp; Content Creator</div>
+    <h1 class="hero-heading">Visuals that talk and<br>demand your <strong>attention.</strong></h1>
+    <p class="hero-sub">Jakarta-based graphic designer &amp; content creator. I help brands show up consistently — across feeds, events, and everything in between.</p>
     <div class="hero-actions">
       <a href="#portfolio" class="btn-primary">Lihat Portofolio →</a>
       <a href="#contact" class="btn-ghost">Hubungi saya</a>
     </div>
     
     <div class="hero-vertical-stack" id="heroStack">
-      <div class="v-card v-c1" onclick="openLightbox(1)"><img src="Images/Medsos GMB.png" alt="Garda Muda Indonesia Block"></div> [cite: 363]
-      <div class="v-card v-c2" onclick="openLightbox(2)"><img src="Images/Medsos tedx.png" alt="TEDxUNJ Publication Unit"></div> [cite: 363]
-      <div class="v-card v-c3" onclick="openLightbox(0)"><img src="Images/Medsos UB.png" alt="Ubah Bareng Campaign Block"></div> [cite: 363]
-      <div class="v-card v-c4" onclick="openLightbox(3)"><img src="Images/Medsos BG.png" alt="Nasi Bang Tega Social Pack"></div> [cite: 363]
-      <div class="v-card v-c5" onclick="openLightbox(1)"><img src="Images/Medsos GMB.png" alt="Brand Communications Design"></div> [cite: 363]
+      <div class="v-card v-c1" onclick="openLightbox(1)"><img src="Images/Medsos%20GMB.png" alt="Garda Muda Indonesia Block"></div>
+      <div class="v-card v-c2" onclick="openLightbox(2)"><img src="Images/Medsos%20tedx.png" alt="TEDxUNJ Publication Unit"></div>
+      <div class="v-card v-c3" onclick="openLightbox(0)"><img src="Images/Medsos%20UB.png" alt="Ubah Bareng Campaign Block"></div>
+      <div class="v-card v-c4" onclick="openLightbox(3)"><img src="Images/Medsos%20BG.png" alt="Nasi Bang Tega Social Pack"></div>
+      <div class="v-card v-c5" onclick="openLightbox(1)"><img src="Images/Medsos%20GMB.png" alt="Creative Production Component"></div>
     </div>
   </div>
 </section>
@@ -336,25 +336,25 @@
 <section id="about">
   <div class="section-inner">
     <div class="section-header">
-      <div><div class="section-num">01 — About</div><h2 class="section-title">Hi, I'm<br><strong>Devara Wiraka</strong></h2></div> [cite: 13, 16]
+      <div><div class="section-num">01 — About</div><h2 class="section-title">Hi, I'm<br><strong>Devara Wiraka</strong></h2></div>
       <div class="section-line"></div>
     </div>
     <div class="about-cols reveal">
       <div class="about-photo-box">
         <div class="about-photo-frame">
-          <img src="Images/Fotosaya.png.png" alt="Devara Wiraka Profile">
+          <img src="Images/Fotosaya.png.png" alt="Devara Wiraka Profile Portrait">
         </div>
       </div>
       <div class="about-text-col">
-        <p class="about-bio">Graphic designer and content creator based in Jakarta. I've been doing this since 2020 — helping brands, organizations, and institutions translate their message into visuals that actually work.</p> [cite: 18]
-        <p class="about-bio">From government ministries to student campaigns, I've handled it all — design, photography, short-form video, and everything in between.</p> [cite: 19]
-        <p class="about-bio">Most recently at the Ministry of Marine Affairs and Fisheries (KKP RI), where I produced creative content for national-scale communications.</p> [cite: 20]
-        <p class="about-bio">I work best when given creative freedom — but I always keep the audience and the message in mind first.</p> [cite: 21]
+        <p class="about-bio">Graphic designer and content creator based in Jakarta. I've been doing this since 2020 — helping brands, organizations, and institutions translate their message into visuals that actually work.</p>
+        <p class="about-bio">From government ministries to student campaigns, I've handled it all — design, photography, short-form video, and everything in between.</p>
+        <p class="about-bio">Most recently at the Ministry of Marine Affairs and Fisheries (KKP RI), where I produced creative content for national-scale communications.</p>
+        <p class="about-bio">I work best when given creative freedom — but I always keep the audience and the message in mind first.</p>
         <div class="section-line" style="margin: 2rem 0 1.5rem 0;"></div>
-        <p class="skills-heading">Core Skills</p> [cite: 22]
+        <p class="skills-heading">Core Skills</p>
         <div class="skills-grid">
-          <span class="skill">Graphic Design</span><span class="skill">Social Media Content</span><span class="skill">Photography</span> [cite: 23]
-          <span class="skill">Video Editing</span><span class="skill">Adobe CC</span><span class="skill">Canva</span> [cite: 23]
+          <span class="skill">Graphic Design</span><span class="skill">Social Media Content</span><span class="skill">Photography</span>
+          <span class="skill">Video Editing</span><span class="skill">Adobe CC</span><span class="skill">Canva</span>
         </div>
       </div>
     </div>
@@ -371,38 +371,38 @@
     <div class="portfolio-grid reveal">
       
       <div class="port-item span-2" onclick="openLightbox(0)">
-        <div class="port-thumb"><img src="Images/Ubah-Bareng (5).jpg" alt="Social Identity Ubah Bareng"></div> [cite: 363]
+        <div class="port-thumb"><img src="Images/Ubah-Bareng%20(5).jpg" alt="Social Identity Ubah Bareng Gallery Asset"></div> [cite: 363]
         <div class="port-info">
           <div class="port-tag">CONTENT</div>
-          <div class="port-title">Social Media Identity — Ubah Bareng</div> [cite: 27]
-          <div class="port-caption">Social media identity for a youth democracy community — built to reach and resonate with young Indonesian audiences.</div> [cite: 28]
+          <div class="port-title">Social Media Identity — Ubah Bareng</div>
+          <div class="port-caption">Social media identity for a youth democracy community — built to reach and resonate with young Indonesian audiences.</div>
         </div>
       </div>
 
       <div class="port-item span-1" onclick="openLightbox(1)">
-        <div class="port-thumb"><img src="Images/GMI (1).png" alt="Creative Campaign GMI"></div> [cite: 363]
+        <div class="port-thumb"><img src="Images/GMI%20(1).png" alt="Creative Campaign GMI Production Grid Item"></div> [cite: 363]
         <div class="port-info">
           <div class="port-tag">CONTENT</div>
-          <div class="port-title">Creative Campaign Graphic — GMI</div> [cite: 29]
-          <div class="port-caption">Campaign graphics for an NGO empowering local communities across Indonesia — visuals that bring the regions to life.</div> [cite: 30]
+          <div class="port-title">Creative Campaign Graphic — GMI</div>
+          <div class="port-caption">Campaign graphics for an NGO empowering local communities across Indonesia — visuals that bring the regions to life.</div>
         </div>
       </div>
 
       <div class="port-item span-1" onclick="openLightbox(2)">
-        <div class="port-thumb"><img src="Images/TEDxUNJ-2025 (4).jpg" alt="TEDxUNJ Publication Production"></div> [cite: 363]
+        <div class="port-thumb"><img src="Images/TEDxUNJ-2025%20(4).jpg" alt="TEDxUNJ Exhibition Asset Frame"></div> [cite: 363]
         <div class="port-info">
           <div class="port-tag">CONTENT</div>
-          <div class="port-title">Social Media Post — TEDxUNJ 2025</div> [cite: 31]
-          <div class="port-caption">Design staff for one of Jakarta's biggest independent TED events — handling all publication visuals from pre-event to post-event.</div> [cite: 32]
+          <div class="port-title">Social Media Post — TEDxUNJ 2025</div>
+          <div class="port-caption">Design staff for one of Jakarta's biggest independent TED events — handling all publication visuals from pre-event to post-event.</div>
         </div>
       </div>
 
       <div class="port-item span-2" onclick="openLightbox(3)">
-        <div class="port-thumb"><img src="Images/Nasi Bang Tega (7).jpeg" alt="Nasi Bang Tega Commercial Brand Pack"></div> [cite: 363]
+        <div class="port-thumb"><img src="Images/Nasi%20Bang%20Tega%20(7).jpeg" alt="Nasi Bang Tega Corporate Project Asset"></div> [cite: 363]
         <div class="port-info">
           <div class="port-tag">CONTENT</div>
-          <div class="port-title">Social Media Design — Nasi Bang Tega</div> [cite: 33]
-          <div class="port-caption">Monthly social media content for an F&amp;B brand — consistent visual identity across feeds and stories.</div> [cite: 34]
+          <div class="port-title">Social Media Design — Nasi Bang Tega</div>
+          <div class="port-caption">Monthly social media content for an F&amp;B brand — consistent visual identity across feeds and stories.</div>
         </div>
       </div>
 
@@ -415,7 +415,7 @@
   <button class="lightbox-btn lightbox-prev" onclick="changeSlide(-1)">&#8592;</button>
   <div class="lightbox-content">
     <div class="lightbox-img-wrap">
-      <img id="lightboxImg" class="lightbox-img" src="" alt="Gallery View">
+      <img id="lightboxImg" class="lightbox-img" src="" alt="Gallery Active View">
     </div>
     <div id="lightboxCaption" class="lightbox-caption"></div>
   </div>
@@ -425,36 +425,36 @@
 <section id="experience">
   <div class="section-inner">
     <div class="section-header reveal">
-      <div><div class="section-num">03 — Experience</div><h2 class="section-title">Intern and other<br><strong>experience</strong></h2></div> [cite: 5]
+      <div><div class="section-num">03 — Experience</div><h2 class="section-title">Intern and other<br><strong>experience</strong></h2></div>
       <div class="section-line"></div>
     </div>
     
     <div class="exp-list reveal">
       
       <div class="exp-item">
-        <div class="exp-logo-box"><img src="Images/logo_kkp_BPPMHKP.png.png" alt="Ministry Level Verification Authority"></div> [cite: 363]
+        <div class="exp-logo-box"><img src="Images/logo_kkp_BPPMHKP.png.png" alt="Ministry Level Brand Authority Verification Badge"></div> [cite: 363]
         <div>
-          <div class="exp-company">KKP RI — Ministry of Marine Affairs and Fisheries</div> [cite: 40]
+          <div class="exp-company">KKP RI — Ministry of Marine Affairs and Fisheries</div>
           <div class="exp-role-row">Staff — Divisi Kerjasama &amp; Humas, BPPMHKP &middot; Januari — Mei 2026</div>
-          <div class="exp-desc">Produced creative content and visual publications for one of Indonesia's largest government ministries — reaching national-scale audiences across digital platforms.</div> [cite: 41]
+          <div class="exp-desc">Produced creative content and visual publications for one of Indonesia's largest government ministries — reaching national-scale audiences across digital platforms.</div>
         </div>
       </div>
 
       <div class="exp-item">
-        <div class="exp-logo-box"><img src="Images/logo_mediacenter_unj.png.png" alt="Media Center Identity"></div> [cite: 363]
+        <div class="exp-logo-box"><img src="Images/logo_mediacenter_unj.png.png" alt="Media Center Organization Logo Node"></div> [cite: 363]
         <div>
-          <div class="exp-company">Media Center, Faculty of Social Sciences — UNJ</div> [cite: 42]
+          <div class="exp-company">Media Center, Faculty of Social Sciences — UNJ</div>
           <div class="exp-role-row">General Chairperson &middot; 2024 — 2025</div>
-          <div class="exp-desc">Trusted to lead the faculty's media center in my first year of college. Managed a team of 40, overseeing all publication, documentation, and digital communication for faculty-wide activities.</div> [cite: 43, 44]
+          <div class="exp-desc">Trusted to lead the faculty's media center in my first year of college. Managed a team of 40, overseeing all publication, documentation, and digital communication for faculty-wide activities.</div>
         </div>
       </div>
 
       <div class="exp-item">
-        <div class="exp-logo-box"><img id="logoAbhinaya" src="Images/logo_abhinaya_aksata BLUE.png" alt="Abhinaya Aksata Identity Logo"></div>
+        <div class="exp-logo-box"><img id="logoAbhinaya" src="Images/logo_abhinaya_aksata%20BLUE.png" alt="Abhinaya Aksata Primary Token Branding Logo"></div>
         <div>
-          <div class="exp-company">Abhinaya Aksata Nusantara Foundation</div> [cite: 45]
+          <div class="exp-company">Abhinaya Aksata Nusantara Foundation</div>
           <div class="exp-role-row">Foundation Supervisory Board &amp; Media Team &middot; 2023 — Present</div>
-          <div class="exp-desc">Designed campaign and community materials for programs across Banda Neira, Bali, and Karimun Jawa — where design meets real social impact.</div> [cite: 46]
+          <div class="exp-desc">Designed campaign and community materials for programs across Banda Neira, Bali, and Karimun Jawa — where design meets real social impact.</div>
         </div>
       </div>
 
@@ -484,9 +484,9 @@
         <a href="https://www.behance.net/devaraaw" target="_blank" rel="noopener" class="behance-visit-btn">Visit Profile</a>
       </div>
       <div class="behance-projects">
-        <a href="https://www.behance.net/devaraaw" target="_blank" rel="noopener" class="behance-proj"><img src="Images/Medsos UB.png" alt="Behance Unit 1"><div class="behance-proj-overlay"><span class="behance-proj-label">View on Behance ↗</span></div></a> [cite: 363]
-        <a href="https://www.behance.net/devaraaw" target="_blank" rel="noopener" class="behance-proj"><img src="Images/Medsos tedx.png" alt="Behance Unit 2"><div class="behance-proj-overlay"><span class="behance-proj-label">View on Behance ↗</span></div></a> [cite: 363]
-        <a href="https://www.behance.net/devaraaw" target="_blank" rel="noopener" class="behance-proj"><img src="Images/Medsos GMB.png" alt="Behance Unit 3"><div class="behance-proj-overlay"><span class="behance-proj-label">View on Behance ↗</span></div></a> [cite: 363]
+        <a href="https://www.behance.net/devaraaw" target="_blank" rel="noopener" class="behance-proj"><img src="Images/Medsos%20UB.png" alt="Behance Case Node 1"><div class="behance-proj-overlay"><span class="behance-proj-label">View on Behance ↗</span></div></a> [cite: 363]
+        <a href="https://www.behance.net/devaraaw" target="_blank" rel="noopener" class="behance-proj"><img src="Images/Medsos%20tedx.png" alt="Behance Case Node 2"><div class="behance-proj-overlay"><span class="behance-proj-label">View on Behance ↗</span></div></a> [cite: 363]
+        <a href="https://www.behance.net/devaraaw" target="_blank" rel="noopener" class="behance-proj"><img src="Images/Medsos%20GMB.png" alt="Behance Case Node 3"><div class="behance-proj-overlay"><span class="behance-proj-label">View on Behance ↗</span></div></a> [cite: 363]
       </div>
     </div>
   </div>
@@ -495,12 +495,12 @@
 <section id="motion">
   <div class="section-inner">
     <div class="section-header reveal">
-      <div><div class="section-num">05 — Portfolio</div><h2 class="section-title">Motion<br><strong>Graphics</strong></h2></div> 
+      <div><div class="section-num">05 — Portfolio</div><h2 class="section-title">Motion<br><strong>Graphics</strong></h2></div>
       <div class="section-line"></div>
     </div>
     <div class="motion-grid reveal">
-      <div class="motion-card"><div class="motion-embed"><iframe src="https://www.youtube.com/embed/v5EfnAIv5W4?controls=0&modestbranding=1&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><div class="motion-meta"><div><div class="motion-title">Motion Graphics Showcase</div><div class="motion-desc">Visual FX &amp; Composition Work</div></div><span class="motion-type">After Effects</span></div></div> 
-      <div class="motion-card"><div class="motion-embed"><iframe src="https://www.youtube.com/embed/wwpUp--V3t0?controls=0&modestbranding=1&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><div class="motion-meta"><div><div class="motion-title">Kinetic Graphics Artwork</div><div class="motion-desc">Dynamic Type &amp; Editorial Motion</div></div><span class="motion-type">Motion Design</span></div></div> 
+      <div class="motion-card"><div class="motion-embed"><iframe src="https://www.youtube.com/embed/v5EfnAIv5W4?controls=0&modestbranding=1&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><div class="motion-meta"><div><div class="motion-title">Motion Graphics Showcase</div><div class="motion-desc">Visual FX &amp; Composition Work</div></div><span class="motion-type">After Effects</span></div></div>
+      <div class="motion-card"><div class="motion-embed"><iframe src="https://www.youtube.com/embed/wwpUp--V3t0?controls=0&modestbranding=1&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><div class="motion-meta"><div><div class="motion-title">Kinetic Graphics Artwork</div><div class="motion-desc">Dynamic Type &amp; Editorial Motion</div></div><span class="motion-type">Motion Design</span></div></div>
     </div>
   </div>
 </section>
@@ -544,8 +544,8 @@
       <div class="section-line"></div>
     </div>
     <div class="video-grid reveal">
-      <div class="video-card"><div class="video-embed"><iframe src="https://www.youtube.com/embed/lCP2FPgQZlg?controls=0&modestbranding=1&rel=0" allowfullscreen></iframe></div><div class="video-meta"><div><div class="video-title">Campaign Video Production</div><div class="video-desc">Visual Production &amp; Editorial</div></div><span class="video-type">Video Editing</span></div></div> 
-      <div class="video-card"><div class="video-embed"><iframe src="https://www.youtube.com/embed/U4X_VLHyQsc?controls=0&modestbranding=1&rel=0" allowfullscreen></iframe></div><div class="video-meta"><div><div class="video-title">Creative Public Relation Video</div><div class="video-desc">Visual Production &amp; Editorial</div></div><span class="video-type">Video Editing</span></div></div> 
+      <div class="video-card"><div class="video-embed"><iframe src="https://www.youtube.com/embed/lCP2FPgQZlg?controls=0&modestbranding=1&rel=0" allowfullscreen></iframe></div><div class="video-meta"><div><div class="video-title">Campaign Video Production</div><div class="video-desc">Visual Production &amp; Editorial</div></div><span class="video-type">Video Editing</span></div></div>
+      <div class="video-card"><div class="video-embed"><iframe src="https://www.youtube.com/embed/U4X_VLHyQsc?controls=0&modestbranding=1&rel=0" allowfullscreen></iframe></div><div class="video-meta"><div><div class="video-title">Creative Public Relation Video</div><div class="video-desc">Visual Production &amp; Editorial</div></div><span class="video-type">Video Editing</span></div></div>
     </div>
   </div>
 </section>
@@ -553,12 +553,12 @@
 <section id="contact">
   <div class="section-inner">
     <div class="section-header reveal">
-      <div><div class="section-num">08 — Kontak</div><h2 class="section-title">Let's make<br><strong>something great.</strong></h2></div> [cite: 48]
+      <div><div class="section-num">08 — Connection</div><h2 class="section-title">Let's make<br><strong>something great.</strong></h2></div>
       <div class="section-line"></div>
     </div>
     <div class="contact-grid reveal">
       <div class="contact-left">
-        <p class="contact-desc">Open for full-time roles, freelance projects, and creative collaborations.</p> [cite: 52]
+        <p class="contact-desc">Open for full-time roles, freelance projects, and creative collaborations.</p>
         <ul class="contact-list">
           <li><a href="mailto:devarawiraka@email.com"><span class="contact-list-icon">@</span><span class="contact-list-label">Email</span><span class="contact-list-val">devarawiraka@email.com</span></a></li>
           <li><a href="https://wa.me/6285171070433" target="_blank" rel="noopener"><span class="contact-list-icon">W</span><span class="contact-list-label">WhatsApp</span><span class="contact-list-val">+62 851-7107-0433</span></a></li>
@@ -574,7 +574,7 @@
           </div>
           <div class="form-field"><label for="fsubject">Subject</label><input type="text" id="fsubject" name="subject" placeholder="What is this about?"></div>
           <div class="form-field"><label for="fmsg">Message</label><textarea id="fmsg" name="message" placeholder="Tell me about your project…" required></textarea></div>
-          <div class="form-submit"><span class="form-note">I usually reply within 1×24 hours.</span><button type="submit" class="btn-send">Kirim Pesan →</button></div> [cite: 53]
+          <div class="form-submit"><span class="form-note">I usually reply within 1×24 hours.</span><button type="submit" class="btn-send">Kirim Pesan →</button></div>
         </form>
       </div>
     </div>
@@ -585,17 +585,17 @@
   <div class="footer-inner">
     <a href="#" class="footer-brand">devara_wiraka</a>
     <p class="footer-copy">©devara_wiraka 2026 — Hosted on GitHub Pages</p>
-    <ul class="footer-links"><li><a href="#about">About</a></li><li><a href="#portfolio">Design</a></li><li><a href="#contact">Contact</a></li></ul>
+    <ul class="footer-links"><li><a href="#about">About</a></li><li><a href="#portfolio">Work</a></li><li><a href="#contact">Contact</a></li></ul>
   </div>
 </footer>
 
 <script>
-  // Array Gallery Data for Slideshow
+  // Array Gallery Lightbox Slideshow Meta Data Mapper
   const projectGallery = [
-    { src: 'Images/Ubah-Bareng (5).jpg', title: 'Social Media Identity — Ubah Bareng', desc: 'Social media identity for a youth democracy community — built to reach and resonate with young Indonesian audiences.' },
-    { src: 'Images/GMI (1).png', title: 'Creative Campaign Graphic — GMI', desc: 'Campaign graphics for an NGO empowering local communities across Indonesia — visuals that bring the regions to life.' },
-    { src: 'Images/TEDxUNJ-2025 (4).jpg', title: 'Social Media Post — TEDxUNJ 2025', desc: "Design staff for one of Jakarta's biggest independent TED events — handling all publication visuals from pre-event to post-event." },
-    { src: 'Images/Nasi Bang Tega (7).jpeg', title: 'Social Media Design — Nasi Bang Tega', desc: 'Monthly social media content for an F&B brand — consistent visual identity across feeds and stories.' }
+    { src: 'Images/Ubah-Bareng%20(5).jpg', title: 'Social Media Identity — Ubah Bareng', desc: 'Social media identity for a youth democracy community — built to reach and resonate with young Indonesian audiences.' },
+    { src: 'Images/GMI%20(1).png', title: 'Creative Campaign Graphic — GMI', desc: 'Campaign graphics for an NGO empowering local communities across Indonesia — visuals that bring the regions to life.' },
+    { src: 'Images/TEDxUNJ-2025%20(4).jpg', title: 'Social Media Post — TEDxUNJ 2025', desc: "Design staff for one of Jakarta's biggest independent TED events — handling all publication visuals from pre-event to post-event." },
+    { src: 'Images/Nasi%20Bang%20Tega%20(7).jpeg', title: 'Social Media Design — Nasi Bang Tega', desc: 'Monthly social media content for an F&B brand — consistent visual identity across feeds and stories.' }
   ];
   let currentSlideIdx = 0;
 
@@ -621,7 +621,7 @@
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
     document.getElementById('navLogo').src = theme === 'dark' ? 'Images/logo_white.png' : 'Images/logo_black.png';
-    document.getElementById('logoAbhinaya').src = theme === 'dark' ? 'Images/logo_abhinaya_aksata WHITE.png' : 'Images/logo_abhinaya_aksata BLUE.png';
+    document.getElementById('logoAbhinaya').src = theme === 'dark' ? 'Images/logo_abhinaya_aksata%20WHITE.png' : 'Images/logo_abhinaya_aksata%20BLUE.png';
   }
 
   (function() {
@@ -632,7 +632,7 @@
         const cb = document.getElementById('darkToggle');
         if (cb) cb.checked = true;
         document.getElementById('navLogo').src = 'Images/logo_white.png';
-        document.getElementById('logoAbhinaya').src = 'Images/logo_abhinaya_aksata WHITE.png';
+        document.getElementById('logoAbhinaya').src = 'Images/logo_abhinaya_aksata%20WHITE.png';
       });
     }
   })();
@@ -646,7 +646,7 @@
     }
   });
 
-  // Staggered Stack Fan-Out Initialization (Fixed whitespace conversions)
+  // Staggered Stack Fan-Out Kinetic Initialization Pipeline
   document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('#heroStack .v-card');
     const offsets = window.innerWidth <= 768 ? [-90, -45, 0, 45, 90] : [-240, -120, 0, 120, 240];
