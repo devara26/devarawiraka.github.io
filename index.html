@@ -1,299 +1,287 @@
 <!DOCTYPE html>
-<html lang="id" data-theme="light">
+<html lang="en" data-theme="light">
 <head>
-  <link rel="icon" type="image/png" href="Images/logo_black.png">
+  <link rel="icon" type="image/png" href="Images/favicon.png.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio — devara_wiraka</title>
+  <title>Devara Wiraka — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root, [data-theme="light"] {
-      --white: #ffffff;
-      --off: #f7f6f4;
-      --line: #e8e6e2;
-      --line2: #d4d0ca;
-      --ink: #1a1916;
-      --ink2: #6b6860;
-      --ink3: #a8a5a0;
-      --accent: #1a1916;
-      --radius: 4px;
+    :root {
+      --color-bg: #FFFFFF;
+      --color-text-primary: #111111;
+      --color-text-secondary: #666666;
+      --color-accent: #111111;
+      --color-surface: #F7F7F7;
+      --color-border: #EBEBEB;
+      
+      --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+      --duration-fast: 200ms;
+      --duration-base: 400ms;
+      --duration-slow: 700ms;
+      
       --max: 1160px;
-      --nav-bg: rgba(255,255,255,0.92);
-      --card-bg: #ffffff;
-      --toggle-bg: #e8e6e2;
-      --toggle-knob: #1a1916;
-      --behance-overlay: rgba(0,0,0,0.8);
+      --nav-bg: rgba(255, 255, 255, 0.85);
+      --behance-overlay: rgba(0, 0, 0, 0.8);
     }
 
     [data-theme="dark"] {
-      --white: #111110;
-      --off: #1a1916;
-      --line: #2a2825;
-      --line2: #3a3834;
-      --ink: #f0ece6;
-      --ink2: #9a9690;
-      --ink3: #5a5855;
-      --accent: #f0ece6;
-      --nav-bg: rgba(17,17,16,0.92);
-      --card-bg: #1a1916;
-      --toggle-bg: #3a3834;
-      --toggle-knob: #f0ece6;
-      --behance-overlay: rgba(0,0,0,0.88);
+      --color-bg: #0A0A0A;
+      --color-text-primary: #F0F0F0;
+      --color-text-secondary: #888888;
+      --color-accent: #FFFFFF;
+      --color-surface: #161616;
+      --color-border: #2A2A2A;
+      --nav-bg: rgba(10, 10, 10, 0.85);
+      --behance-overlay: rgba(0, 0, 0, 0.88);
     }
 
     html { scroll-behavior: smooth; font-size: 16px; }
-    body { background: var(--white); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; overflow-x: hidden; padding-top: 60px; transition: background 0.35s ease, color 0.35s ease; }
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    body { background: var(--color-bg); color: var(--color-text-primary); font-family: 'DM Sans', system-ui, sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; overflow-x: hidden; padding-top: 60px; transition: background var(--duration-base) var(--ease-smooth), color var(--duration-base) var(--ease-smooth); }
+    
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity var(--duration-slow) var(--ease-smooth), transform var(--duration-slow) var(--ease-smooth); }
     .reveal.visible { opacity: 1; transform: translateY(0); }
  
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--nav-bg); backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); transition: background 0.35s ease, border-color 0.35s ease; }
+    /* Navigation Area */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: transparent; border-bottom: 1px solid transparent; transition: all var(--duration-fast) var(--ease-smooth); }
+    nav.scrolled { background: var(--nav-bg); backdrop-filter: blur(12px); border-bottom: 1px solid var(--color-border); }
     .nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 2.5rem; height: 60px; display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo-block { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
-    .nav-logo-img { height: 34px; width: 34px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line2); background: var(--off); display: block; flex-shrink: 0; }
-    .nav-logo-text { font-size: 1rem; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; }
-    .nav-logo-text span { color: var(--ink3); font-weight: 300; }
+    .nav-logo-block { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-img { height: 32px; width: 32px; object-fit: contain; }
+    .nav-logo-text { font-size: 1rem; font-weight: 500; color: var(--color-text-primary); letter-spacing: -0.01em; }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
-    .nav-links a { font-size: 0.82rem; font-weight: 400; color: var(--ink2); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--ink); }
-    .nav-cta { font-size: 0.82rem; font-weight: 500; color: var(--ink) !important; border: 1px solid var(--line2); padding: 7px 18px; border-radius: var(--radius); transition: background 0.2s, border-color 0.2s !important; }
-    .nav-cta:hover { background: var(--ink) !important; color: var(--white) !important; border-color: var(--ink) !important; }
+    .nav-links a { font-size: 0.85rem; font-weight: 400; color: var(--color-text-secondary); text-decoration: none; letter-spacing: 0.01em; transition: color var(--duration-fast) var(--ease-smooth); }
+    .nav-links a:hover { color: var(--color-text-primary); }
+    .nav-cta { font-size: 0.82rem; font-weight: 500; color: var(--color-text-primary) !important; border: 1px solid var(--color-text-secondary); padding: 8px 20px; border-radius: 50px; transition: all var(--duration-fast) var(--ease-smooth) !important; }
+    .nav-cta:hover { background: var(--color-text-primary) !important; color: var(--color-bg) !important; border-color: var(--color-text-primary) !important; }
 
     .nav-right { display: flex; align-items: center; gap: 1.5rem; }
     .dark-toggle { display: flex; align-items: center; gap: 8px; cursor: pointer; user-select: none; }
-    .toggle-track { width: 40px; height: 22px; background: var(--toggle-bg); border-radius: 11px; position: relative; transition: background 0.3s ease; border: 1px solid var(--line2); flex-shrink: 0; }
-    .toggle-knob { width: 16px; height: 16px; background: var(--toggle-knob); border-radius: 50%; position: absolute; top: 2px; left: 2px; transition: transform 0.3s ease, background 0.3s ease; }
+    .toggle-track { width: 40px; height: 22px; background: var(--color-border); border-radius: 11px; position: relative; transition: background var(--duration-base) var(--ease-smooth); border: 1px solid var(--color-border); flex-shrink: 0; }
+    .toggle-knob { width: 16px; height: 16px; background: var(--color-text-primary); border-radius: 50%; position: absolute; top: 2px; left: 2px; transition: transform var(--duration-base) var(--ease-smooth); }
     [data-theme="dark"] .toggle-knob { transform: translateX(18px); }
-    .toggle-icon { font-size: 0.82rem; color: var(--ink3); line-height: 1; transition: color 0.2s; width: 16px; text-align: center; }
+    .toggle-icon { font-size: 0.85rem; color: var(--color-text-secondary); }
  
-    #hero { min-height: calc(100vh - 60px); display: flex; flex-direction: column; align-items: center; justify-content: center; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; padding-top: 4rem; }
-    .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 60px 60px; opacity: 0.25; transition: opacity 0.35s; z-index: 0; }
-    .hero-inner { max-width: var(--max); margin: 0 auto; padding: 0 2.5rem; position: relative; z-index: 1; width: 100%; text-align: center; }
-    .hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 0.78rem; font-weight: 500; color: var(--ink2); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.5rem; }
-    .hero-heading { font-size: clamp(2.5rem, 5.5vw, 4.2rem); font-weight: 300; line-height: 1.15; letter-spacing: -0.02em; color: var(--ink); max-width: 900px; margin: 0 auto 1.5rem; }
+    /* Hero Space */
+    #hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: space-between; position: relative; overflow: hidden; padding-top: 6.5rem; border-bottom: 1px solid var(--color-border); }
+    .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(var(--color-border) 1px, transparent 1px), linear-gradient(90deg, var(--color-border) 1px, transparent 1px); background-size: 60px 60px; opacity: 0.22; z-index: 0; }
+    .hero-inner { max-width: var(--max); margin: 0 auto; padding: 0 2.5rem; position: relative; z-index: 1; width: 100%; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
+    .hero-eyebrow { display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 500; color: var(--color-text-secondary); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem; }
+    .hero-heading { font-size: clamp(2.6rem, 5.8vw, 4.5rem); font-weight: 300; line-height: 1.12; letter-spacing: -0.025em; color: var(--color-text-primary); max-width: 920px; margin: 0 auto 1.5rem; }
     .hero-heading strong { font-weight: 600; }
-    .hero-sub { font-size: 1rem; font-weight: 300; color: var(--ink2); max-width: 580px; line-height: 1.6; margin: 0 auto 2.5rem; }
-    .hero-actions { display: flex; align-items: center; justify-content: center; gap: 1.2rem; margin-bottom: 4rem; }
-    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--white); text-decoration: none; font-size: 0.85rem; font-weight: 500; padding: 12px 26px; border-radius: 50px; transition: opacity 0.2s, transform 0.2s; letter-spacing: 0.01em; }
-    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
-    .btn-ghost { display: inline-flex; align-items: center; gap: 6px; color: var(--ink); text-decoration: none; font-size: 0.85rem; font-weight: 500; padding: 12px 26px; border: 1px solid var(--line2); border-radius: 50px; transition: background 0.2s, color 0.2s; }
-    .btn-ghost:hover { background: var(--off); }
+    .hero-sub { font-size: 1.05rem; font-weight: 300; color: var(--color-text-secondary); max-width: 600px; line-height: 1.65; margin: 0 auto 2.5rem; }
+    .hero-actions { display: flex; align-items: center; justify-content: center; gap: 1.2rem; margin-bottom: 3.5rem; }
     
-    .hero-stack-container { position: relative; width: 100%; max-width: 760px; height: 240px; margin: 0 auto; display: flex; align-items: center; justify-content: center; z-index: 2; }
-    .hero-card { position: absolute; width: 150px; height: 150px; background: var(--white); border-radius: 12px; border: 1px solid var(--line); box-shadow: 0 12px 36px rgba(0,0,0,0.06); overflow: hidden; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), z-index 0.2s; cursor: pointer; }
-    .hero-card img { width: 100%; height: 100%; object-fit: cover; }
-    
-    .card-1 { transform: translate(-220px, 15px) rotate(-12deg); z-index: 10; }
-    .card-2 { transform: translate(-110px, 5px) rotate(-6deg); z-index: 15; }
-    .card-3 { transform: translate(0px, 0px) rotate(0deg); z-index: 20; border-color: var(--line2); }
-    .card-4 { transform: translate(110px, 5px) rotate(6deg); z-index: 15; }
-    .card-5 { transform: translate(220px, 15px) rotate(12deg); z-index: 10; }
-    .hero-card:hover { transform: scale(1.08) translateY(-10px) rotate(0deg) !important; z-index: 50 !important; box-shadow: 0 20px 48px rgba(0,0,0,0.12); border-color: var(--ink2); }
- 
-    #about { background: var(--off); border-bottom: 1px solid var(--line); }
-    .section-inner { max-width: var(--max); margin: 0 auto; padding: 6rem 2.5rem; }
-    .section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 4rem; }
-    .section-num { font-size: 0.72rem; font-weight: 500; color: var(--ink3); letter-spacing: 0.1em; margin-bottom: 0.5rem; }
-    .section-title { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 300; letter-spacing: -0.025em; line-height: 1.15; color: var(--ink); }
-    .section-title strong { font-weight: 600; }
-    .section-line { flex: 1; height: 1px; background: var(--line); margin-bottom: 6px; }
-    .about-cols { display: grid; grid-template-columns: 340px 1fr; gap: 5rem; align-items: start; }
-    .about-photo-box { position: relative; }
-    .about-photo-frame { width: 100%; aspect-ratio: 3/4; background: var(--line); border: 1px solid var(--line2); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; color: var(--ink3); font-size: 0.8rem; letter-spacing: 0.05em; overflow: hidden; position: relative; }
-    .about-photo-frame img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
-    .photo-label { position: absolute; bottom: -1px; left: -1px; right: -1px; background: var(--white); border: 1px solid var(--line2); padding: 10px 14px; font-size: 0.75rem; font-weight: 500; color: var(--ink2); display: flex; justify-content: space-between; align-items: center; }
-    .about-text-col { padding-top: 0.25rem; }
-    .about-bio { font-size: 1.05rem; font-weight: 300; line-height: 1.85; color: var(--ink2); margin-bottom: 2rem; }
-    .about-bio strong { color: var(--ink); font-weight: 500; }
-    .skills-heading { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink3); margin-bottom: 1rem; }
-    .skills-grid { display: flex; flex-wrap: wrap; gap: 8px; }
-    .skill { padding: 6px 14px; border: 1px solid var(--line2); border-radius: 2px; font-size: 0.82rem; font-weight: 400; color: var(--ink2); background: var(--white); transition: border-color 0.2s, color 0.2s; }
-    .skill:hover { border-color: var(--ink); color: var(--ink); }
-    
-    #portfolio { background: var(--white); border-bottom: 1px solid var(--line); }
-    .filter-bar { display: flex; gap: 8px; margin-bottom: 3rem; flex-wrap: wrap; }
-    .filter-btn { padding: 6px 16px; border: 1px solid var(--line2); background: none; border-radius: var(--radius); font-size: 0.82rem; font-weight: 400; font-family: 'DM Sans', sans-serif; color: var(--ink2); cursor: pointer; transition: all 0.18s; }
-    .filter-btn:hover, .filter-btn.active { background: var(--ink); color: var(--white); border-color: var(--ink); }
-    .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-    .port-item { background: var(--white); overflow: hidden; cursor: pointer; transition: background 0.2s; position: relative; }
-    .port-item:hover { background: var(--off); }
-    .port-thumb { width: 100%; aspect-ratio: 4/3; background: var(--off); overflow: hidden; position: relative; display: flex; align-items: center; justify-content: center; }
-    .port-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-    .port-item:hover .port-thumb img { transform: scale(1.04); }
-    .port-info { padding: 1.25rem 1.25rem 1.5rem; border-top: 1px solid var(--line); background: var(--white); }
-    .port-tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink3); margin-bottom: 5px; }
-    .port-title { font-size: 0.95rem; font-weight: 500; color: var(--ink); margin-bottom: 4px; letter-spacing: -0.01em; }
-    .port-year { font-size: 0.8rem; color: var(--ink3); }
-    .port-item.large { grid-column: span 2; }
-    .port-item.large .port-thumb { aspect-ratio: 16/9; }
-    
-    #video { background: var(--off); border-bottom: 1px solid var(--line); }
-    .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-    .video-card { background: var(--card-bg); border: 1px solid var(--line); }
-    .video-embed { position: relative; padding-bottom: 56.25%; height: 0; background: var(--ink); }
-    .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-    .video-meta { padding: 1rem 1.25rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
-    .video-title { font-size: 0.9rem; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
-    .video-desc { font-size: 0.8rem; color: var(--ink3); }
-    .video-type { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink2); border: 1px solid var(--line2); padding: 4px 10px; border-radius: 2px; white-space: nowrap; }
-    
-    #contact { background: var(--white); }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
-    .contact-tagline { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 300; letter-spacing: -0.025em; line-height: 1.2; margin-bottom: 1.5rem; color: var(--ink); }
-    .contact-tagline strong { font-weight: 600; }
-    .contact-desc { font-size: 1rem; color: var(--ink2); line-height: 1.8; margin-bottom: 3rem; max-width: 400px; }
-    .contact-list { list-style: none; display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--line); }
-    .contact-list li { border-bottom: 1px solid var(--line); }
-    .contact-list a { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 0; text-decoration: none; color: var(--ink2); font-size: 0.92rem; transition: color 0.2s, padding-left 0.2s; gap: 1rem; }
-    .contact-list a:hover { color: var(--ink); padding-left: 8px; }
-    .contact-list-icon { width: 28px; height: 28px; border: 1px solid var(--line2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 11px; color: var(--ink3); transition: border-color 0.2s, color 0.2s; }
-    .contact-list a:hover .contact-list-icon { border-color: var(--ink); color: var(--ink); }
-    .contact-list-label { flex: 1; font-weight: 400; }
-    .contact-list-val { color: var(--ink3); font-size: 0.82rem; }
-    
-    .contact-form { display: flex; flex-direction: column; gap: 0; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-    .form-field { position: relative; border: 1px solid var(--line); margin: -1px 0 0 -1px; background: var(--white); }
-    .form-field:first-child { margin-top: 0; }
-    .form-field label { position: absolute; top: 12px; left: 16px; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3); pointer-events: none; transition: all 0.2s; }
-    .form-field input, .form-field textarea { width: 100%; background: transparent; border: none; outline: none; font-family: 'DM Sans', sans-serif; font-size: 0.92rem; font-weight: 300; color: var(--ink); padding: 34px 16px 14px; resize: none; }
-    .form-field textarea { min-height: 130px; }
-    .form-field:focus-within { border-color: var(--ink); z-index: 1; }
-    .form-field:focus-within label { color: var(--ink); }
-    .form-submit { margin-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-    .form-note { font-size: 0.8rem; color: var(--ink3); }
-    .btn-send { display: inline-flex; align-items: center; gap: 10px; background: var(--ink); color: var(--white); border: none; padding: 13px 28px; border-radius: var(--radius); font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 500; cursor: pointer; letter-spacing: 0.01em; transition: opacity 0.2s, transform 0.2s; }
-    .btn-send:hover { opacity: 0.82; transform: translateY(-1px); }
-    
-    footer { border-top: 1px solid var(--line); background: var(--off); }
-    .footer-inner { max-width: var(--max); margin: 0 auto; padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-    .footer-brand { font-size: 0.9rem; font-weight: 500; color: var(--ink); text-decoration: none; }
-    .footer-copy { font-size: 0.78rem; color: var(--ink3); }
-    .footer-links { display: flex; gap: 1.5rem; list-style: none; }
-    .footer-links a { font-size: 0.78rem; color: var(--ink3); text-decoration: none; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--ink); }
+    /* Social Proof Bar */
+    .trusted-bar { display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-bottom: 4rem; width: 100%; }
+    .trusted-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-text-secondary); }
+    .trusted-logos { display: flex; align-items: center; justify-content: center; gap: 3.5rem; flex-wrap: wrap; }
+    .trusted-logos img { height: 38px; max-width: 140px; object-fit: contain; filter: grayscale(1) opacity(0.45); transition: filter var(--duration-base) var(--ease-smooth); }
+    .trusted-logos img:hover { filter: grayscale(0) opacity(1); }
 
-    #behance { background: url('Images/Medsos_BG.png') center/cover no-repeat; border-bottom: 1px solid var(--line); position: relative; }
-    #behance::before { content: ""; position: absolute; inset: 0; background: var(--behance-overlay); z-index: 0; transition: background 0.35s ease; }
+    /* Interactive Vertical Card Stack Component */
+    .hero-vertical-stack { position: relative; width: 100%; max-width: 800px; height: 160px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: center; z-index: 2; }
+    .v-card { position: absolute; width: 165px; height: 220px; background: var(--color-bg); border-radius: 14px 14px 0 0; border: 1px solid var(--color-border); border-bottom: none; box-shadow: 0 -8px 32px rgba(0,0,0,0.04); overflow: hidden; transform-origin: bottom center; bottom: -50px; opacity: 0; transform: translateY(100px); }
+    .v-card img { width: 100%; height: 100%; object-fit: cover; }
+    .v-card:hover { transform: translateY(-55px) scale(1.05) rotate(0deg) !important; z-index: 60 !important; box-shadow: 0 -12px 40px rgba(0,0,0,0.1); border-color: var(--color-text-secondary); }
+ 
+    /* Sections Standard */
+    #about, #experience, #behance, #social, #video, #contact { border-bottom: 1px solid var(--color-border); }
+    #about, #experience, #social { background: var(--color-surface); }
+    #portfolio, #video, #contact { background: var(--color-bg); }
+
+    .section-inner { max-width: var(--max); margin: 0 auto; padding: 7rem 2.5rem; }
+    .section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 4.5rem; }
+    .section-num { font-size: 0.72rem; font-weight: 500; color: var(--color-text-secondary); letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+    .section-title { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 300; letter-spacing: -0.025em; line-height: 1.15; color: var(--color-text-primary); }
+    .section-title strong { font-weight: 600; }
+    .section-line { flex: 1; height: 1px; background: var(--color-border); margin-bottom: 6px; }
+
+    /* About Component */
+    .about-cols { display: grid; grid-template-columns: 300px 1fr; gap: 5rem; align-items: start; }
+    .about-photo-frame { width: 100%; aspect-ratio: 3/4; background: var(--color-border); border: 1px solid var(--color-border); display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 8px; }
+    .about-photo-frame span { font-weight: 600; font-size: 1.8rem; color: var(--color-text-secondary); letter-spacing: 0.04em; }
+    .about-text-col { padding-top: 0.25rem; }
+    .about-bio { font-size: 1.05rem; font-weight: 300; line-height: 1.85; color: var(--color-text-secondary); margin-bottom: 1.5rem; }
+    .skills-heading { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: 1.2rem; }
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill { padding: 6px 14px; border: 1px solid var(--color-border); border-radius: 4px; font-size: 0.82rem; font-weight: 400; color: var(--color-text-secondary); background: var(--color-bg); transition: all var(--duration-fast) var(--ease-smooth); }
+    .skill:hover { border-color: var(--color-text-primary); color: var(--color-text-primary); }
+    
+    /* Portfolio Asymmetric Grid Layout */
+    .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5rem 2.5rem; }
+    .port-item { background: transparent; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; text-decoration: none; }
+    .port-thumb { width: 100%; aspect-ratio: 16/10; background: var(--color-surface); overflow: hidden; border-radius: 8px; border: 1px solid var(--color-border); }
+    .port-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--duration-slow) var(--ease-smooth); }
+    .port-item:hover .port-thumb img { transform: scale(1.025); }
+    .port-info { padding: 1.25rem 0 0 0; }
+    .port-tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: 6px; }
+    .port-title { font-size: 1.25rem; font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px; letter-spacing: -0.01em; }
+    .port-caption { font-size: 0.92rem; color: var(--color-text-secondary); line-height: 1.55; font-weight: 300; }
+    .port-item.span-2 { grid-column: span 2; }
+    .port-item.span-1 { grid-column: span 1; }
+    .port-item.span-2 .port-thumb { aspect-ratio: 16/9; }
+
+    /* Experience System Layout */
+    .exp-list { display: flex; flex-direction: column; gap: 1.5rem; max-width: 900px; }
+    .exp-item { display: grid; grid-template-columns: 72px 1fr; gap: 2rem; background: var(--color-bg); border: 1px solid var(--color-border); padding: 2.2rem; border-radius: 8px; align-items: center; transition: border-color var(--duration-fast) var(--ease-smooth); }
+    .exp-item:hover { border-color: var(--color-text-secondary); }
+    .exp-logo-box { width: 72px; height: 72px; border-radius: 8px; overflow: hidden; border: 1px solid var(--color-border); display: flex; align-items: center; justify-content: center; background: #FFFFFF; padding: 4px; }
+    .exp-logo-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
+    .exp-company { font-size: 1.2rem; font-weight: 600; color: var(--color-text-primary); margin-bottom: 4px; letter-spacing: -0.01em; }
+    .exp-role-row { font-size: 0.85rem; color: var(--color-text-secondary); margin-bottom: 12px; font-weight: 400; }
+    .exp-desc { font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.6; font-weight: 300; }
+    
+    /* Behance Block */
+    #behance { background: url('Images/Medsos BG.png') center/cover no-repeat; position: relative; }
+    #behance::before { content: ""; position: absolute; inset: 0; background: var(--behance-overlay); z-index: 0; }
     #behance > * { position: relative; z-index: 1; }
-    #behance .section-num, #behance .section-title { color: #fff !important; }
-    #behance .section-line { background: rgba(255,255,255,0.18); }
-    .behance-card { display: flex; align-items: center; justify-content: space-between; gap: 2.5rem; flex-wrap: wrap; background: var(--card-bg); border: 1px solid var(--line); border-radius: 6px; padding: 2rem 2.5rem; max-width: 680px; transition: background 0.35s ease, border-color 0.35s ease; }
+    .behance-card { display: flex; align-items: center; justify-content: space-between; gap: 2.5rem; flex-wrap: wrap; background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 6px; padding: 2rem 2.5rem; max-width: 680px; }
     .behance-card-left { display: flex; align-items: center; gap: 1.25rem; }
-    .behance-avatar { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line2); background: var(--off); flex-shrink: 0; display: block; }
-    .behance-avatar-fallback { width: 56px; height: 56px; border-radius: 50%; background: #0057ff; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; color: #fff; flex-shrink: 0; letter-spacing: -0.01em; }
-    .behance-name { font-size: 1rem; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 3px; }
-    .behance-handle { font-size: 0.82rem; color: var(--ink3); display: flex; align-items: center; gap: 6px; }
-    .behance-dot { width: 5px; height: 5px; border-radius: 50%; background: #0057ff; flex-shrink: 0; }
-    .behance-meta { display: flex; gap: 1.5rem; margin-top: 0.75rem; flex-wrap: wrap; }
+    .behance-avatar-fallback { width: 56px; height: 56px; border-radius: 50%; background: #0057ff; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; color: #fff; letter-spacing: -0.01em; }
+    .behance-name { font-size: 1rem; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px; }
+    .behance-handle { font-size: 0.82rem; color: var(--color-text-secondary); display: flex; align-items: center; gap: 6px; }
+    .behance-dot { width: 5px; height: 5px; border-radius: 50%; background: #0057ff; }
+    .behance-meta { display: flex; gap: 1.5rem; margin-top: 0.75rem; }
     .behance-stat { display: flex; flex-direction: column; gap: 2px; }
-    .behance-stat-num { font-size: 1rem; font-weight: 600; color: var(--ink); line-height: 1; }
-    .behance-stat-label { font-size: 0.72rem; color: var(--ink3); letter-spacing: 0.04em; }
-    .behance-visit-btn { display: inline-flex; align-items: center; gap: 8px; background: #0057ff; color: #fff; text-decoration: none; font-size: 0.85rem; font-weight: 500; padding: 10px 22px; border-radius: var(--radius); transition: opacity 0.2s, transform 0.2s; white-space: nowrap; letter-spacing: 0.01em; flex-shrink: 0; }
-    .behance-visit-btn:hover { opacity: 0.85; transform: translateY(-1px); }
-    .behance-projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; margin-top: 2.5rem; max-width: 680px; }
-    .behance-proj { background: var(--card-bg); aspect-ratio: 4/3; overflow: hidden; position: relative; cursor: pointer; }
-    .behance-proj img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .behance-stat-num { font-size: 1rem; font-weight: 600; color: var(--color-text-primary); }
+    .behance-stat-label { font-size: 0.72rem; color: var(--color-text-secondary); }
+    .behance-visit-btn { display: inline-flex; align-items: center; gap: 8px; background: #0057ff; color: #fff; text-decoration: none; font-size: 0.85rem; font-weight: 500; padding: 10px 22px; border-radius: 4px; transition: opacity var(--duration-fast) var(--ease-smooth); }
+    .behance-visit-btn:hover { opacity: 0.9; }
+    .behance-projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--color-border); border: 1px solid var(--color-border); border-radius: 4px; overflow: hidden; margin-top: 2.5rem; max-width: 680px; }
+    .behance-proj { background: var(--color-bg); aspect-ratio: 4/3; overflow: hidden; position: relative; }
+    .behance-proj img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--duration-base) var(--ease-smooth); }
     .behance-proj:hover img { transform: scale(1.06); }
-    .behance-proj-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0); display: flex; align-items: flex-end; padding: 10px; transition: background 0.25s; }
+    .behance-proj-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0); display: flex; align-items: flex-end; padding: 10px; transition: background var(--duration-fast) var(--ease-smooth); }
     .behance-proj:hover .behance-proj-overlay { background: rgba(0,0,0,0.45); }
-    .behance-proj-label { font-size: 0.72rem; font-weight: 500; color: #fff; opacity: 0; transition: opacity 0.25s; letter-spacing: 0.03em; }
+    .behance-proj-label { font-size: 0.72rem; font-weight: 500; color: #fff; opacity: 0; transition: opacity var(--duration-fast) var(--ease-smooth); }
     .behance-proj:hover .behance-proj-label { opacity: 1; }
 
-    #social { background: var(--white); border-bottom: 1px solid var(--line); }
-    .social-tabs { display: flex; gap: 4px; margin-bottom: 2.5rem; border-bottom: 1px solid var(--line); padding-bottom: 0; }
-    .social-tab-btn { display: inline-flex; align-items: center; gap: 7px; padding: 9px 18px 11px; font-size: 0.82rem; font-weight: 500; font-family: 'DM Sans', sans-serif; color: var(--ink3); background: none; border: none; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.18s, border-color 0.18s; letter-spacing: 0.01em; }
-    .social-tab-btn:hover { color: var(--ink); }
-    .social-tab-btn.active { color: var(--ink); border-bottom-color: var(--ink); }
-    .social-tab-btn .tab-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-    .tab-dot-tiktok { background: #010101; }
+    /* Short Form Interface Component */
+    .social-tabs { display: flex; gap: 4px; margin-bottom: 2.5rem; border-bottom: 1px solid var(--color-border); }
+    .social-tab-btn { display: inline-flex; align-items: center; gap: 7px; padding: 9px 18px 11px; font-size: 0.82rem; font-weight: 500; color: var(--color-text-secondary); background: none; border: none; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all var(--duration-fast) var(--ease-smooth); }
+    .social-tab-btn:hover, .social-tab-btn.active { color: var(--color-text-primary); }
+    .social-tab-btn.active { border-bottom-color: var(--color-text-primary); }
+    .social-tab-btn .tab-dot { width: 6px; height: 6px; border-radius: 50%; }
     .tab-dot-reels  { background: #e1306c; }
-    .tab-dot-all    { background: var(--ink2); }
-    [data-theme="dark"] .tab-dot-tiktok { background: #ffffff; }
+    .tab-dot-all    { background: var(--color-text-secondary); }
     .social-panel { display: none; }
     .social-panel.active { display: block; }
     .reel-slider-wrap { position: relative; }
-    .reel-slider { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; padding-bottom: 12px; scrollbar-width: none; }
+    .reel-slider { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 12px; scrollbar-width: none; }
     .reel-slider::-webkit-scrollbar { display: none; }
-    .reel-card { flex: 0 0 220px; scroll-snap-align: start; background: var(--card-bg); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; transition: border-color 0.2s, transform 0.2s; }
-    .reel-card:hover { border-color: var(--line2); transform: translateY(-2px); }
-    .reel-embed { position: relative; width: 100%; aspect-ratio: 9/16; background: #000; overflow: hidden; }
+    .reel-card { flex: 0 0 220px; scroll-snap-align: start; background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden; transition: border-color var(--duration-fast) var(--ease-smooth); }
+    .reel-card:hover { border-color: var(--color-text-secondary); }
+    .reel-embed { position: relative; width: 100%; aspect-ratio: 9/16; background: #000000; overflow: hidden; }
     .reel-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; display: block; }
-    .reel-meta { padding: 0.8rem 0.9rem; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-    .reel-meta-left { min-width: 0; }
-    .reel-title { font-size: 0.8rem; font-weight: 500; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 2px; }
-    .reel-source { font-size: 0.7rem; color: var(--ink3); display: flex; align-items: center; gap: 5px; }
-    .reel-source-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+    .reel-meta { padding: 0.8rem 0.9rem; border-top: 1px solid var(--color-border); }
+    .reel-title { font-size: 0.8rem; font-weight: 500; color: var(--color-text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 2px; }
+    .reel-source { font-size: 0.7rem; color: var(--color-text-secondary); display: flex; align-items: center; gap: 5px; }
+    .reel-source-dot { width: 5px; height: 5px; border-radius: 50%; }
     .slider-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 1.5rem; }
     .slider-dots { display: flex; gap: 6px; align-items: center; }
-    .slider-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--line2); transition: background 0.2s, width 0.2s; cursor: pointer; }
-    .slider-dot.active { background: var(--ink); width: 18px; border-radius: 3px; }
+    .slider-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-border); transition: all var(--duration-fast) var(--ease-smooth); cursor: pointer; }
+    .slider-dot.active { background: var(--color-text-primary); width: 18px; border-radius: 3px; }
     .slider-arrows { display: flex; gap: 8px; }
-    .slider-arrow { width: 36px; height: 36px; border: 1px solid var(--line2); background: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.18s; font-family: inherit; color: var(--ink2); }
-    .slider-arrow:hover { border-color: var(--ink); color: var(--ink); background: var(--off); }
-    .slider-arrow:disabled { opacity: 0.35; cursor: default; }
-    .slider-count { font-size: 0.78rem; color: var(--ink3); letter-spacing: 0.04em; }
+    .slider-arrow { width: 36px; height: 36px; border: 1px solid var(--color-border); background: var(--color-bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all var(--duration-fast) var(--ease-smooth); color: var(--color-text-secondary); }
+    .slider-arrow:hover { border-color: var(--color-text-primary); color: var(--color-text-primary); }
+    .slider-count { font-size: 0.78rem; color: var(--color-text-secondary); }
 
-    @media (max-width: 900px) {
+    /* Video Embed Components */
+    .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .video-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 6px; overflow: hidden; }
+    .video-embed { position: relative; padding-bottom: 56.25%; height: 0; background: #000000; }
+    .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+    .video-meta { padding: 1rem 1.25rem; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center; }
+    .video-title { font-size: 0.9rem; font-weight: 500; color: var(--color-text-primary); margin-bottom: 2px; }
+    .video-desc { font-size: 0.8rem; color: var(--color-text-secondary); }
+    .video-type { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-primary); border: 1px solid var(--color-border); padding: 4px 10px; border-radius: 2px; }
+    
+    /* Lead Capture Contact Area */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+    .contact-desc { font-size: 1rem; color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 3rem; max-width: 400px; }
+    .contact-list { list-style: none; display: flex; flex-direction: column; border-top: 1px solid var(--color-border); }
+    .contact-list li { border-bottom: 1px solid var(--color-border); }
+    .contact-list a { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 0; text-decoration: none; color: var(--color-text-secondary); font-size: 0.92rem; transition: all var(--duration-fast) var(--ease-smooth); }
+    .contact-list a:hover { color: var(--color-text-primary); padding-left: 8px; }
+    .contact-list-icon { width: 28px; height: 28px; border: 1px solid var(--color-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; transition: all var(--duration-fast) var(--ease-smooth); }
+    .contact-list a:hover .contact-list-icon { border-color: var(--color-text-primary); color: var(--color-text-primary); }
+    .contact-list-label { flex: 1; margin-left: 12px; }
+    
+    .contact-form { display: flex; flex-direction: column; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .form-field { position: relative; border: 1px solid var(--color-border); margin: -1px 0 0 -1px; background: var(--color-bg); }
+    .form-field label { position: absolute; top: 12px; left: 16px; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-secondary); pointer-events: none; transition: color var(--duration-fast) var(--ease-smooth); }
+    .form-field input, .form-field textarea { width: 100%; background: transparent; border: none; outline: none; font-family: inherit; font-size: 0.92rem; font-weight: 300; color: var(--color-text-primary); padding: 34px 16px 14px; resize: none; }
+    .form-field textarea { min-height: 130px; }
+    .form-field:focus-within { border-color: var(--color-text-primary); z-index: 1; }
+    .form-field:focus-within label { color: var(--color-text-primary); }
+    .form-submit { margin-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .form-note { font-size: 0.8rem; color: var(--color-text-secondary); }
+    .btn-send { display: inline-flex; align-items: center; gap: 10px; background: var(--color-text-primary); color: var(--color-bg); border: none; padding: 13px 28px; border-radius: 4px; font-size: 0.88rem; font-weight: 500; cursor: pointer; transition: opacity var(--duration-fast) var(--ease-smooth); }
+    .btn-send:hover { opacity: 0.85; }
+    
+    /* Footer Layout */
+    footer { border-top: 1px solid var(--color-border); background: var(--color-surface); }
+    .footer-inner { max-width: var(--max); margin: 0 auto; padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .footer-brand { font-size: 0.9rem; font-weight: 500; color: var(--color-text-primary); text-decoration: none; }
+    .footer-copy { font-size: 0.78rem; color: var(--color-text-secondary); }
+    .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+    .footer-links a { font-size: 0.78rem; color: var(--color-text-secondary); text-decoration: none; transition: color var(--duration-fast) var(--ease-smooth); }
+    .footer-links a:hover { color: var(--color-text-primary); }
+
+    /* Layout Responsive System Breakpoints */
+    @media (max-width: 1024px) {
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+      .port-item.span-2 { grid-column: span 2; }
+    }
+    @media (max-width: 768px) {
       .nav-links { display: none; }
-      .hero-inner { padding: 4rem 1.5rem; }
-      .hero-stack-container { height: 180px; }
-      .hero-card { width: 110px; height: 110px; }
-      .card-1 { transform: translate(-130px, 10px) rotate(-12deg); }
-      .card-2 { transform: translate(-65px, 5px) rotate(-6deg); }
-      .card-3 { transform: translate(0px, 0px) rotate(0deg); }
-      .card-4 { transform: translate(65px, 5px) rotate(6deg); }
-      .card-5 { transform: translate(130px, 10px) rotate(12deg); }
-      .section-inner { padding: 4rem 1.5rem; }
+      .section-inner { padding: 5rem 1.5rem; }
+      .hero-inner { padding: 0 1.5rem; }
       .about-cols { grid-template-columns: 1fr; gap: 2.5rem; }
-      .portfolio-grid { grid-template-columns: 1fr 1fr; }
-      .port-item.large { grid-column: span 2; }
+      .portfolio-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .port-item.span-2, .port-item.span-1 { grid-column: span 1; }
+      .port-item.span-2 .port-thumb { aspect-ratio: 16/10; }
+      .exp-item { grid-template-columns: 1fr; gap: 1.2rem; padding: 1.5rem; }
       .video-grid { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
       .form-row { grid-template-columns: 1fr; }
       .footer-inner { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
       .behance-projects { grid-template-columns: repeat(3, 1fr); }
-    }
-    @media (max-width: 600px) {
-      .portfolio-grid { grid-template-columns: 1fr; }
-      .port-item.large { grid-column: span 1; }
-      .port-item.large .port-thumb { aspect-ratio: 4/3; }
-      .hero-heading { font-size: 2.2rem; }
-      .hero-actions { flex-direction: column; gap: 0.8rem; width: 100%; max-width: 280px; margin: 0 auto 3rem; }
-      .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
-      .hero-stack-container { height: 140px; }
-      .hero-card { width: 85px; height: 85px; border-radius: 8px; }
-      .card-1 { transform: translate(-100px, 8px) rotate(-12deg); }
-      .card-2 { transform: translate(-50px, 4px) rotate(-6deg); }
-      .card-3 { transform: translate(0px, 0px) rotate(0deg); }
-      .card-4 { transform: translate(50px, 4px) rotate(6deg); }
-      .card-5 { transform: translate(100px, 8px) rotate(12deg); }
-      .nav-inner { padding: 0 1.25rem; }
-      .behance-card { padding: 1.5rem; gap: 1.5rem; }
+      
+      .hero-vertical-stack { height: 130px; }
+      .v-card { width: 75px; height: 100px; }
+      .v-c1 { transform: translateX(-90px) rotate(-10deg) !important; }
+      .v-c2 { transform: translateX(-45px) rotate(-4deg) translateY(-5px) !important; }
+      .v-c3 { transform: translateX(0px) rotate(0deg) translateY(-10px) !important; }
+      .v-c4 { transform: translateX(45px) rotate(4deg) translateY(-5px) !important; }
+      .v-c5 { transform: translateX(90px) rotate(10deg) !important; }
     }
   </style>
 </head>
 <body>
  
-<nav>
+<nav id="navbar">
   <div class="nav-inner">
     <a href="#" class="nav-logo-block">
-      <img src="Images/logo_black.png" alt="Logo Devara Wiraka" class="nav-logo-img" onerror="this.style.display='none'; document.getElementById('nav-fallback').style.display='flex';">
-      <div id="nav-fallback" class="nav-logo-fallback">DW</div>
-      <span class="nav-logo-text">Devara Wiraka <span>/ Portofolio</span></span>
+      <img src="Images/logo_black.png" alt="Logo" class="nav-logo-img" id="navLogo">
+      <span class="nav-logo-text">Devara Wiraka</span>
     </a>
     <div class="nav-right">
       <ul class="nav-links">
-        <li><a href="#about">Tentang</a></li>
-        <li><a href="#portfolio">Desain</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Design</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#behance">Behance</a></li>
-        <li><a href="#social">Konten</a></li>
+        <li><a href="#social">Content</a></li>
         <li><a href="#video">Video</a></li>
-        <li><a href="#contact" class="nav-cta">Hubungi</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
       </ul>
-      <label class="dark-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">
+      <label class="dark-toggle" title="Toggle dark mode">
         <span class="toggle-icon">☀</span>
         <div class="toggle-track"><div class="toggle-knob"></div></div>
         <span class="toggle-icon">☾</span>
@@ -306,20 +294,29 @@
 <section id="hero">
   <div class="hero-grid-bg"></div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">Public Relations &amp; Digital Communication Specialist</div>
-    <h1 class="hero-heading">Menyampaikan Pesan <strong>Positif</strong>,<br>lewat visual yang <strong>Efektif.</strong></h1>
-    <p class="hero-sub">Saya membantu brand atau individu mengubah ide menjadi visual bernarasi kuat melalui kreasi Desain Grafis, Manajemen Konten Sosial Media, Fotografi, dan Dokumentasi Event.</p>
+    <div class="hero-eyebrow">Graphic Designer &amp; Content Creator</div>
+    <h1 class="hero-heading">Visuals that talk and<br>demand your <strong>attention.</strong></h1>
+    <p class="hero-sub">Jakarta-based graphic designer &amp; content creator. I help brands show up consistently — across feeds, events, and everything in between.</p>
     <div class="hero-actions">
-      <a href="#portfolio" class="btn-primary">Lihat Portofolio <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#portfolio" class="btn-primary">Lihat Portofolio →</a>
       <a href="#contact" class="btn-ghost">Hubungi saya</a>
     </div>
     
-    <div class="hero-stack-container">
-      <div class="hero-card card-1" onclick="location.href='#portfolio'"><img src="Images/Medsos_GMB.png" alt="Medsos GMB"></div>
-      <div class="hero-card card-2" onclick="location.href='#portfolio'"><img src="Images/Medsos_tedx.png" alt="Medsos TEDx"></div>
-      <div class="hero-card card-3" onclick="location.href='#portfolio'"><img src="Images/Medsos_UB.png" alt="Medsos UB"></div>
-      <div class="hero-card card-4" onclick="location.href='#portfolio'"><img src="Images/Medsos_GMB.png" alt="Portfolio Work"></div>
-      <div class="hero-card card-5" onclick="location.href='#portfolio'"><img src="Images/Medsos_tedx.png" alt="Creative Work"></div>
+    <div class="trusted-bar">
+      <div class="trusted-label">Trusted By These Innovators &amp; Institutions</div>
+      <div class="trusted-logos">
+        <img src="Images/logo_kkp_BPPMHKP.png.png" alt="KKP BPPMHKP RI">
+        <img src="Images/logo_mediacenter_unj.png.png" alt="FIS Media Center UNJ">
+        <img src="Images/logo_kkp.png.png" alt="Abhinaya Aksata Foundation">
+      </div>
+    </div>
+    
+    <div class="hero-vertical-stack" id="heroStack">
+      <div class="v-card v-c1"><img src="Images/Medsos GMB.png" alt="Garda Muda Indonesia Block"></div>
+      <div class="v-card v-c2"><img src="Images/Medsos tedx.png" alt="TEDxUNJ Publication Unit"></div>
+      <div class="v-card v-c3"><img src="Images/Medsos UB.png" alt="Ubah Bareng Campaign Block"></div>
+      <div class="v-card v-c4"><img src="Images/Medsos BG.png" alt="Nasi Bang Tega Social Pack"></div>
+      <div class="v-card v-c5"><img src="Images/Medsos GMB.png" alt="Brand Communications Design"></div>
     </div>
   </div>
 </section>
@@ -327,25 +324,25 @@
 <section id="about">
   <div class="section-inner">
     <div class="section-header">
-      <div><div class="section-num">01 — Tentang</div><h2 class="section-title">Halo, saya<br><strong>Devara Wiraka</strong></h2></div>
+      <div><div class="section-num">01 — About</div><h2 class="section-title">Hi, I'm<br><strong>Devara Wiraka</strong></h2></div>
       <div class="section-line"></div>
     </div>
     <div class="about-cols reveal">
       <div class="about-photo-box">
         <div class="about-photo-frame">
-          <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:var(--line); color:var(--ink2); font-weight:600;">DW</div>
-          <div class="photo-label"><span>Devara Wiraka</span><span>PR & Specialist</span></div>
+          <span>DW</span>
         </div>
       </div>
       <div class="about-text-col">
-        <p class="about-bio">Saya adalah seorang desainer grafis berbasis di <strong>Jakarta, Indonesia</strong> yang berfokus pada branding, social media design, dan produksi konten visual. Saya percaya desain yang baik lahir dari pemahaman mendalam tentang tujuan, audiens, dan pesan bukan sekadar tampilan.</p>
-        <p class="about-bio">Dengan pengalaman lebih dari <strong>3 tahun</strong>, saya telah membantu berbagai klien dari individu, umkm hingga organisasi nasional untuk membangun identitas visual yang kuat dan konsisten.</p>
-        <p class="about-bio">Saat ini terbuka untuk proyek <strong>freelance</strong>, kolaborasi kreatif, dan kesempatan kerja penuh waktu.</p>
-        <p class="skills-heading">Keahlian</p>
+        <p class="about-bio">Graphic designer and content creator based in Jakarta. I've been doing this since 2020 — helping brands, organizations, and institutions translate their message into visuals that actually work.</p>
+        <p class="about-bio">From government ministries to student campaigns, I've handled it all — design, photography, short-form video, and everything in between.</p>
+        <p class="about-bio">Most recently at the Ministry of Marine Affairs and Fisheries (KKP RI), where I produced creative content for national-scale communications.</p>
+        <p class="about-bio">I work best when given creative freedom — but I always keep the audience and the message in mind first.</p>
+        <div class="section-line" style="margin: 2rem 0 1.5rem 0;"></div>
+        <p class="skills-heading">Core Skills</p>
         <div class="skills-grid">
-          <span class="skill">Brand Identity</span><span class="skill">UI / UX Design</span><span class="skill">Motion Graphics</span>
-          <span class="skill">Social Media</span><span class="skill">Figma</span><span class="skill">Adobe Illustrator</span>
-          <span class="skill">Photoshop</span><span class="skill">After Effects</span><span class="skill">Canva</span>
+          <span class="skill">Graphic Design</span><span class="skill">Social Media Content</span><span class="skill">Photography</span>
+          <span class="skill">Video Editing</span><span class="skill">Adobe CC</span><span class="skill">Canva</span>
         </div>
       </div>
     </div>
@@ -355,17 +352,88 @@
 <section id="portfolio">
   <div class="section-inner">
     <div class="section-header reveal">
-      <div><div class="section-num">02 — Karya Desain</div><h2 class="section-title">Portofolio<br><strong>Pilihan</strong></h2></div>
+      <div><div class="section-num">02 — Selected Works</div><h2 class="section-title">Featured<br><strong>Projects</strong></h2></div>
       <div class="section-line"></div>
     </div>
-    <div class="filter-bar reveal">
-      <button class="filter-btn active" onclick="filterPortfolio('all', this)">Semua</button>
-      <button class="filter-btn" onclick="filterPortfolio('content', this)">Content</button>
+    
+    <div class="portfolio-grid reveal">
+      
+      <div class="port-item span-2" onclick="window.open('https://www.behance.net/devaraaw', '_blank')">
+        <div class="port-thumb"><img src="Images/Ubah-Bareng (5).jpg" alt="Social Identity Ubah Bareng"></div>
+        <div class="port-info">
+          <div class="port-tag">CONTENT</div>
+          <div class="port-title">Social Media Identity — Ubah Bareng</div>
+          <div class="port-caption">Social media identity for a youth democracy community — built to reach and resonate with young Indonesian audiences.</div>
+        </div>
+      </div>
+
+      <div class="port-item span-1" onclick="window.open('https://www.behance.net/devaraaw', '_blank')">
+        <div class="port-thumb"><img src="Images/GMI (1).png" alt="Creative Campaign GMI"></div>
+        <div class="port-info">
+          <div class="port-tag">CONTENT</div>
+          <div class="port-title">Creative Campaign Graphic — GMI</div>
+          <div class="port-caption">Campaign graphics for an NGO empowering local communities across Indonesia — visuals that bring the regions to life.</div>
+        </div>
+      </div>
+
+      <div class="port-item span-1" onclick="window.open('https://www.behance.net/devaraaw', '_blank')">
+        <div class="port-thumb"><img src="Images/TEDxUNJ-2025 (4).jpg" alt="TEDxUNJ Publication Production"></div>
+        <div class="port-info">
+          <div class="port-tag">CONTENT</div>
+          <div class="port-title">Social Media Post — TEDxUNJ 2025</div>
+          <div class="port-caption">Design staff for one of Jakarta's biggest independent TED events — handling all publication visuals from pre-event to post-event.</div>
+        </div>
+      </div>
+
+      <div class="port-item span-2" onclick="window.open('https://www.behance.net/devaraaw', '_blank')">
+        <div class="port-thumb"><img src="Images/Nasi Bang Tega (7).jpeg" alt="Nasi Bang Tega Commercial Brand Pack"></div>
+        <div class="port-info">
+          <div class="port-tag">CONTENT</div>
+          <div class="port-title">Social Media Design — Nasi Bang Tega</div>
+          <div class="port-caption">Monthly social media content for an F&amp;B brand — consistent visual identity across feeds and stories.</div>
+        </div>
+      </div>
+
     </div>
-    <div class="portfolio-grid reveal" id="portfolioGrid">
-      <div class="port-item large" data-cat="content"><div class="port-thumb"><img src="Images/Medsos_UB.png" alt="Medsos Universitas Brawijaya"></div><div class="port-info"><div class="port-tag">Content</div><div class="port-title">Social Media Identity — Universitas Brawijaya</div><div class="port-year">2025</div></div></div>
-      <div class="port-item" data-cat="content"><div class="port-thumb"><img src="Images/Medsos_tedx.png" alt="Medsos TEDx"></div><div class="port-info"><div class="port-tag">Content</div><div class="port-title">Social Media Post — TEDx Event</div><div class="port-year">2025</div></div></div>
-      <div class="port-item" data-cat="content"><div class="port-thumb"><img src="Images/Medsos_GMB.png" alt="Medsos GMB"></div><div class="port-info"><div class="port-tag">Content</div><div class="port-title">Creative Campaign Graphic — GMB</div><div class="port-year">2026</div></div></div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div><div class="section-num">03 — Experience</div><h2 class="section-title">Real work.<br><strong>Real clients.</strong></h2></div>
+      <div class="section-line"></div>
+    </div>
+    
+    <div class="exp-list reveal">
+      
+      <div class="exp-item">
+        <div class="exp-logo-box"><img src="Images/logo_kkp_BPPMHKP.png.png" alt="Ministry Level Verification Authority"></div>
+        <div>
+          <div class="exp-company">KKP RI — Ministry of Marine Affairs and Fisheries</div>
+          <div class="exp-role-row">Staff — Divisi Kerjasama &amp; Humas, BPPMHKP &middot; Januari — Mei 2026</div>
+          <div class="exp-desc">Produced creative content and visual publications for one of Indonesia's largest government ministries — reaching national-scale audiences across digital platforms.</div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-logo-box"><img src="Images/logo_mediacenter_unj.png.png" alt="Media Center Corporate Identity Badge"></div>
+        <div>
+          <div class="exp-company">Media Center, Faculty of Social Sciences — UNJ</div>
+          <div class="exp-role-row">General Chairperson &middot; 2024 — 2025</div>
+          <div class="exp-desc">Trusted to lead the faculty's media center in my first year of college. Managed a team of 40, overseeing all publication, documentation, and digital communication for faculty-wide activities.</div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-logo-box"><img src="Images/logo_kkp.png.png" alt="Social Foundation Verified Partner Identity Logo"></div>
+        <div>
+          <div class="exp-company">Abhinaya Aksata Nusantara Foundation</div>
+          <div class="exp-role-row">Foundation Supervisory Board &amp; Media Team &middot; 2023 — Present</div>
+          <div class="exp-desc">Designed campaign and community materials for programs across Banda Neira, Bali, and Karimun Jawa — where design meets real social impact.</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -373,7 +441,7 @@
 <section id="behance">
   <div class="section-inner">
     <div class="section-header reveal">
-      <div><div class="section-num">03 — Behance</div><h2 class="section-title">Lihat di<br><strong>Behance</strong></h2></div>
+      <div><div class="section-num">04 — External Network</div><h2 class="section-title">Explore on<br><strong>Behance</strong></h2></div>
       <div class="section-line"></div>
     </div>
     <div class="reveal">
@@ -383,15 +451,18 @@
           <div>
             <div class="behance-name">Devara Wiraka</div>
             <div class="behance-handle"><span class="behance-dot"></span>behance.net/devaraaw</div>
-            <div class="behance-meta"><div class="behance-stat"><span class="behance-stat-num">Specialist</span><span class="behance-stat-label">Posisi</span></div><div class="behance-stat"><span class="behance-stat-num">Jakarta</span><span class="behance-stat-label">Lokasi</span></div></div>
+            <div class="behance-meta">
+              <div class="behance-stat"><span class="behance-stat-num">Specialist</span><span class="behance-stat-label">Role</span></div>
+              <div class="behance-stat" style="margin-left:1.5rem"><span class="behance-stat-num">Jakarta</span><span class="behance-stat-label">Location</span></div>
+            </div>
           </div>
         </div>
-        <a href="https://www.behance.net/devaraaw" target="_blank" rel="noopener" class="behance-visit-btn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Kunjungi Profil</a>
+        <a href="https://www.behance.net/devaraaw" target="_blank" rel="noopener" class="behance-visit-btn">Visit Profile</a>
       </div>
       <div class="behance-projects">
-        <a href="https://www.behance.net/devaraaw" target="_blank" rel="noopener" class="behance-proj"><img src="Images/Medsos_UB.png" alt="Behance Project 1"><div class="behance-proj-overlay"><span class="behance-proj-label">Lihat di Behance ↗</span></div></a>
-        <a href="https://www.behance.net/devaraaw" target="_blank" rel="noopener" class="behance-proj"><img src="Images/Medsos_tedx.png" alt="Behance Project 2"><div class="behance-proj-overlay"><span class="behance-proj-label">Lihat di Behance ↗</span></div></a>
-        <a href="https://www.behance.net/devaraaw" target="_blank" rel="noopener" class="behance-proj"><img src="Images/Medsos_GMB.png" alt="Behance Project 3"><div class="behance-proj-overlay"><span class="behance-proj-label">Lihat di Behance ↗</span></div></a>
+        <a href="https://www.behance.net/devaraaw" target="_blank" rel="noopener" class="behance-proj"><img src="Images/Medsos UB.png" alt="Behance Production Unit 1"><div class="behance-proj-overlay"><span class="behance-proj-label">View on Behance ↗</span></div></a>
+        <a href="https://www.behance.net/devaraaw" target="_blank" rel="noopener" class="behance-proj"><img src="Images/Medsos tedx.png" alt="Behance Production Unit 2"><div class="behance-proj-overlay"><span class="behance-proj-label">View on Behance ↗</span></div></a>
+        <a href="https://www.behance.net/devaraaw" target="_blank" rel="noopener" class="behance-proj"><img src="Images/Medsos GMB.png" alt="Behance Production Unit 3"><div class="behance-proj-overlay"><span class="behance-proj-label">View on Behance ↗</span></div></a>
       </div>
     </div>
   </div>
@@ -400,26 +471,26 @@
 <section id="social">
   <div class="section-inner">
     <div class="section-header reveal">
-      <div><div class="section-num">04 — Konten Sosial Media</div><h2 class="section-title">Short Form<br><strong>Content</strong></h2></div>
+      <div><div class="section-num">05 — Konten Sosial Media</div><h2 class="section-title">Short Form<br><strong>Content</strong></h2></div>
       <div class="section-line"></div>
     </div>
     <div class="social-tabs reveal">
-      <button class="social-tab-btn active" onclick="switchTab('all', this)"><span class="tab-dot tab-dot-all"></span> Semua</button>
-      <button class="social-tab-btn" onclick="switchTab('reels', this)"><span class="tab-dot tab-dot-reels"></span> Reels</button>
+      <button class="social-tab-btn active" onclick="switchTab('all', this)"><span class="tab-dot tab-dot-all"></span> All Work</button>
+      <button class="social-tab-btn" onclick="switchTab('reels', this)"><span class="tab-dot tab-dot-reels"></span> Instagram Reels</button>
     </div>
     <div class="social-panel active reveal" id="panel-all">
       <div class="reel-slider-wrap">
         <div class="reel-slider" id="slider-all">
-          <div class="reel-card" data-src="reels"><div class="reel-embed"><iframe src="https://www.instagram.com/reel/DT-P5WMknpK/embed/" allowfullscreen scrolling="no" frameborder="0"></iframe></div><div class="reel-meta"><div class="reel-meta-left"><div class="reel-title">Reels Content 1</div><div class="reel-source"><span class="reel-source-dot" style="background:#e1306c"></span>Instagram Reels</div></div></div></div>
-          <div class="reel-card" data-src="reels"><div class="reel-embed"><iframe src="https://www.instagram.com/reel/DUINhL3Esur/embed/" allowfullscreen scrolling="no" frameborder="0"></iframe></div><div class="reel-meta"><div class="reel-meta-left"><div class="reel-title">Reels Content 2</div><div class="reel-source"><span class="reel-source-dot" style="background:#e1306c"></span>Instagram Reels</div></div></div></div>
+          <div class="reel-card" data-src="reels"><div class="reel-embed"><iframe src="https://www.instagram.com/reel/DT-P5WMknpK/embed/" allowfullscreen scrolling="no" frameborder="0"></iframe></div><div class="reel-meta"><div class="reel-title">Reels Content 1</div><div class="reel-source"><span class="reel-source-dot" style="background:#e1306c"></span>Instagram Reels</div></div></div>
+          <div class="reel-card" data-src="reels"><div class="reel-embed"><iframe src="https://www.instagram.com/reel/DUINhL3Esur/embed/" allowfullscreen scrolling="no" frameborder="0"></iframe></div><div class="reel-meta"><div class="reel-title">Reels Content 2</div><div class="reel-source"><span class="reel-source-dot" style="background:#e1306c"></span>Instagram Reels</div></div></div>
         </div>
         <div class="slider-nav">
           <div class="slider-dots" id="dots-all"></div>
           <div style="display:flex;align-items:center;gap:1rem">
             <span class="slider-count" id="count-all">1 / 2</span>
             <div class="slider-arrows">
-              <button class="slider-arrow" onclick="slideMove('slider-all','dots-all','count-all',-1)" aria-label="Prev">&#8592;</button>
-              <button class="slider-arrow" onclick="slideMove('slider-all','dots-all','count-all',1)" aria-label="Next">&#8594;</button>
+              <button class="slider-arrow" onclick="slideMove('slider-all','dots-all','count-all',-1)">&#8592;</button>
+              <button class="slider-arrow" onclick="slideMove('slider-all','dots-all','count-all',1)">&#8594;</button>
             </div>
           </div>
         </div>
@@ -432,12 +503,12 @@
 <section id="video">
   <div class="section-inner">
     <div class="section-header reveal">
-      <div><div class="section-num">05 — Video</div><h2 class="section-title">Karya<br><strong>Video</strong></h2></div>
+      <div><div class="section-num">06 — Video Production</div><h2 class="section-title">Motion &amp;<br><strong>Cinema</strong></h2></div>
       <div class="section-line"></div>
     </div>
     <div class="video-grid reveal">
-      <div class="video-card"><div class="video-embed"><iframe src="https://www.youtube.com/embed/lCP2FPgQZlg" title="Video Editing" allowfullscreen></iframe></div><div class="video-meta"><div class="video-meta-left"><div class="video-title">Campaign Video Production</div><div class="video-desc">Visual Production & Editorial</div></div><span class="video-type">Video Editing</span></div></div>
-      <div class="video-card"><div class="video-embed"><iframe src="https://www.youtube.com/embed/a0VvsmmbDRo" title="Video Editing" allowfullscreen></iframe></div><div class="video-meta"><div class="video-meta-left"><div class="video-title">Creative Public Relation Video</div><div class="video-desc">Visual Production & Editorial</div></div><span class="video-type">Video Editing</span></div></div>
+      <div class="video-card"><div class="video-embed"><iframe src="https://www.youtube.com/embed/lCP2FPgQZlg" allowfullscreen></iframe></div><div class="video-meta"><div><div class="video-title">Campaign Video Production</div><div class="video-desc">Visual Production &amp; Editorial</div></div><span class="video-type">Video Editing</span></div></div>
+      <div class="video-card"><div class="video-embed"><iframe src="https://www.youtube.com/embed/a0VvsmmbDRo" allowfullscreen></iframe></div><div class="video-meta"><div><div class="video-title">Creative Public Relation Video</div><div class="video-desc">Visual Production &amp; Editorial</div></div><span class="video-type">Video Editing</span></div></div>
     </div>
   </div>
 </section>
@@ -445,15 +516,15 @@
 <section id="contact">
   <div class="section-inner">
     <div class="section-header reveal">
-      <div><div class="section-num">06 — Kontak</div><h2 class="section-title">Mari<br><strong>Bekerja Sama</strong></h2></div>
+      <div><div class="section-num">07 — Connection</div><h2 class="section-title">Let's make<br><strong>something great.</strong></h2></div>
       <div class="section-line"></div>
     </div>
     <div class="contact-grid reveal">
       <div class="contact-left">
-        <p class="contact-desc">Punya proyek menarik? Saya terbuka untuk diskusi, kolaborasi kreatif, maupun proyek freelance. Jangan ragu menghubungi saya.</p>
+        <p class="contact-desc">Open for full-time roles, freelance projects, and creative collaborations.</p>
         <ul class="contact-list">
           <li><a href="mailto:devarawiraka@email.com"><span class="contact-list-icon">@</span><span class="contact-list-label">Email</span><span class="contact-list-val">devarawiraka@email.com</span></a></li>
-          <li><a href="https://wa.me/6285171070433" target="_blank" rel="noopener"><span class="contact-list-icon">W</span><span class="contact-list-label">WhatsApp</span><span class="contact-list-val">+62 85171070433</span></a></li>
+          <li><a href="https://wa.me/6285171070433" target="_blank" rel="noopener"><span class="contact-list-icon">W</span><span class="contact-list-label">WhatsApp</span><span class="contact-list-val">+62 851-7107-0433</span></a></li>
           <li><a href="https://www.instagram.com/devara_wiraka" target="_blank" rel="noopener"><span class="contact-list-icon">IG</span><span class="contact-list-label">Instagram</span><span class="contact-list-val">@devara_wiraka</span></a></li>
           <li><a href="https://www.linkedin.com/in/devaraalfaritziwiraka" target="_blank" rel="noopener"><span class="contact-list-icon">in</span><span class="contact-list-label">LinkedIn</span><span class="contact-list-val">devara_wiraka</span></a></li>
         </ul>
@@ -461,12 +532,12 @@
       <div>
         <form class="contact-form" action="https://formspree.io/f/mjgpvaae" method="POST">
           <div class="form-row">
-            <div class="form-field"><label for="fname">Nama</label><input type="text" id="fname" name="name" placeholder="Nama lengkap" required></div>
-            <div class="form-field"><label for="femail">Email</label><input type="email" id="femail" name="email" placeholder="email@kamu.com" required></div>
+            <div class="form-field"><label for="fname">Name</label><input type="text" id="fname" name="name" placeholder="Your full name" required></div>
+            <div class="form-field"><label for="femail">Email</label><input type="email" id="femail" name="email" placeholder="email@example.com" required></div>
           </div>
-          <div class="form-field"><label for="fsubject">Topik</label><input type="text" id="fsubject" name="subject" placeholder="Tentang apa?"></div>
-          <div class="form-field"><label for="fmsg">Pesan</label><textarea id="fmsg" name="message" placeholder="Ceritakan proyekmu…" required></textarea></div>
-          <div class="form-submit"><span class="form-note">Biasanya saya balas dalam 1–2 hari kerja.</span><button type="submit" class="btn-send">Kirim Pesan <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+          <div class="form-field"><label for="fsubject">Subject</label><input type="text" id="fsubject" name="subject" placeholder="What is this about?"></div>
+          <div class="form-field"><label for="fmsg">Message</label><textarea id="fmsg" name="message" placeholder="Tell me about your project…" required></textarea></div>
+          <div class="form-submit"><span class="form-note">I usually reply within 1×24 hours.</span><button type="submit" class="btn-send">Kirim Pesan →</button></div>
         </form>
       </div>
     </div>
@@ -477,7 +548,7 @@
   <div class="footer-inner">
     <a href="#" class="footer-brand">devara_wiraka</a>
     <p class="footer-copy">©devara_wiraka 2026 — Hosted on GitHub Pages</p>
-    <ul class="footer-links"><li><a href="#about">Tentang</a></li><li><a href="#portfolio">Desain</a></li><li><a href="#contact">Kontak</a></li></ul>
+    <ul class="footer-links"><li><a href="#about">About</a></li><li><a href="#portfolio">Work</a></li><li><a href="#contact">Contact</a></li></ul>
   </div>
 </footer>
 
@@ -486,38 +557,64 @@
     const theme = checkbox.checked ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
+    document.getElementById('navLogo').src = theme === 'dark' ? 'Images/logo_white.png' : 'Images/logo_black.png';
   }
 
   (function() {
     const saved = localStorage.getItem('theme');
     if (saved === 'dark') {
       document.documentElement.setAttribute('data-theme', 'dark');
-      setTimeout(() => { const cb = document.getElementById('darkToggle'); if (cb) cb.checked = true; }, 50);
+      document.addEventListener('DOMContentLoaded', () => {
+        const cb = document.getElementById('darkToggle');
+        if (cb) cb.checked = true;
+        document.getElementById('navLogo').src = 'Images/logo_white.png';
+      });
     }
   })();
 
-  const reveals = document.querySelectorAll('.reveal');
-  const revealIO = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealIO.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  reveals.forEach(el => revealIO.observe(el));
-
-  function filterPortfolio(cat, btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.port-item').forEach(item => {
-      item.style.display = (cat === 'all' || item.dataset.cat === cat) ? 'block' : 'none';
-    });
-  }
-
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks  = document.querySelectorAll('.nav-links a');
+  // Scrolling Dynamic Spec Implementation
   window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id'); });
-    navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--ink)' : ''; });
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
   });
 
+  // Smooth Delayed Stack Animation Setup on Initialization
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('#heroStack .v-card');
+    const offsets = window.innerWidth <= 768 ? [-90, -45, 0, 45, 90] : [-240, -120, 0, 120, 240];
+    const rotates = [-10, -4, 0, 4, 10];
+    const yOffsets = [0, -10, -20, -10, 0];
+
+    cards.forEach((card, i) => {
+      setTimeout(() => {
+        card.style.opacity = '1';
+        if (window.innerWidth <= 768) {
+          card.style.transform = `translateX(${offsets[i]}px) rotate(${rotates[i]}deg)`;
+        } else {
+          card.style.transform = `translateX(${offsets[i]}px) rotate(${rotates[i]}deg) translateY(${yOffsets[i]}px)`;
+        }
+        card.style.transition = 'transform var(--duration-slow) var(--ease-smooth), opacity var(--duration-slow) var(--ease-smooth)';
+      }, i * 80);
+    });
+  });
+
+  // Viewport Detection Mechanism via API
+  const reveals = document.querySelectorAll('.reveal');
+  const revealIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealIO.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => revealIO.observe(el));
+
+  // Slider Panels Engine
   function switchTab(id, btn) {
     document.querySelectorAll('.social-tab-btn').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.social-panel').forEach(p => p.classList.remove('active'));
@@ -564,25 +661,14 @@
     if (!rgSlider) return;
     allCards.forEach(card => {
       const src = card.dataset.src;
-      if (src === 'reels')  rgSlider.appendChild(card.cloneNode(true));
+      if (src === 'reels') rgSlider.appendChild(card.cloneNode(true));
     });
-    initDots('slider-reels',  'dots-reels',  'count-reels');
+    initDots('slider-reels', 'dots-reels', 'count-reels');
   }
 
   document.addEventListener('DOMContentLoaded', () => {
     initDots('slider-all', 'dots-all', 'count-all');
     populateSubPanels();
-    ['all','reels'].forEach(id => {
-      const slider = document.getElementById('slider-' + id);
-      if (!slider) return;
-      slider.addEventListener('scroll', () => {
-        const cards = slider.querySelectorAll('.reel-card');
-        const cardW = cards[0] ? cards[0].offsetWidth + 16 : 236;
-        const idx = Math.round(slider.scrollLeft / cardW);
-        document.querySelectorAll('#dots-' + id + ' .slider-dot').forEach((d, i) => { d.classList.toggle('active', i === idx); });
-        if (document.getElementById('count-' + id)) document.getElementById('count-' + id).textContent = (idx + 1) + ' / ' + cards.length;
-      });
-    });
   });
 </script>
 </body>
