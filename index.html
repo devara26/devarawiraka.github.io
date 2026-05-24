@@ -65,10 +65,10 @@
     [data-theme="dark"] .toggle-knob { transform: translateX(18px); }
     .toggle-icon { font-size: 0.85rem; color: var(--color-text-secondary); }
  
-    /* Hero Space with Integrated Portrait Overlay */
+    /* Hero Section Component */
     #hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: space-between; position: relative; overflow: hidden; padding-top: 6.5rem; border-bottom: 1px solid var(--color-border); }
-    .hero-bg-photo { position: absolute; inset: 0; background: url('Images/Fotosaya.png.png') center/cover no-repeat; opacity: 0.08; filter: saturate(0.1) contrast(1.1); z-index: 0; pointer-events: none; }
-    [data-theme="dark"] .hero-bg-photo { opacity: 0.05; filter: saturate(0) brightness(0.7); }
+    .hero-bg-photo { position: absolute; inset: 0; background: url('Images/Fotosaya.png.png') center/cover no-repeat; opacity: 0.08; filter: saturate(0.15) contrast(1.05); z-index: 0; pointer-events: none; }
+    [data-theme="dark"] .hero-bg-photo { opacity: 0.05; filter: saturate(0) brightness(0.65); }
     .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(var(--color-border) 1px, transparent 1px), linear-gradient(90deg, var(--color-border) 1px, transparent 1px); background-size: 60px 60px; opacity: 0.22; z-index: 1; pointer-events: none; }
     .hero-inner { max-width: var(--max); margin: 0 auto; padding: 0 2.5rem; position: relative; z-index: 2; width: 100%; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
     .hero-eyebrow { display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 500; color: var(--color-text-secondary); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem; }
@@ -77,17 +77,13 @@
     .hero-sub { font-size: 1.05rem; font-weight: 300; color: var(--color-text-secondary); max-width: 600px; line-height: 1.65; margin: 0 auto 2.5rem; }
     .hero-actions { display: flex; align-items: center; justify-content: center; gap: 1.2rem; margin-bottom: 4.5rem; }
     
-    /* Smooth 1080x1350 Fanning Out Card Stack Component */
+    /* 1080x1350 Ratio Vertical Stack Component */
     .hero-vertical-stack { position: relative; width: 100%; max-width: 800px; height: 180px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: center; z-index: 3; }
     .v-card { position: absolute; width: 148px; height: 185px; background: var(--color-bg); border-radius: 14px 14px 0 0; border: 1px solid var(--color-border); border-bottom: none; box-shadow: 0 -8px 32px rgba(0,0,0,0.04); overflow: hidden; transform-origin: bottom center; bottom: -50px; opacity: 0; transform: translateY(100px); cursor: pointer; }
     .v-card img { width: 100%; height: 100%; object-fit: cover; }
     .v-card:hover { transform: translateY(-55px) scale(1.06) rotate(0deg) !important; z-index: 60 !important; box-shadow: 0 -12px 40px rgba(0,0,0,0.1); border-color: var(--color-text-secondary); }
  
-    /* Sections Baseline Setup */
-    #about, #experience, #behance, #social, #video, #motion, #contact { border-bottom: 1px solid var(--color-border); }
-    #about, #experience, #social { background: var(--color-surface); }
-    #portfolio, #motion, #video, #contact { background: var(--color-bg); }
-
+    /* Base Component Layout */
     .section-inner { max-width: var(--max); margin: 0 auto; padding: 7rem 2.5rem; }
     .section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 4.5rem; }
     .section-num { font-size: 0.72rem; font-weight: 500; color: var(--color-text-secondary); letter-spacing: 0.1em; margin-bottom: 0.5rem; }
@@ -106,7 +102,7 @@
     .skill { padding: 6px 14px; border: 1px solid var(--color-border); border-radius: 4px; font-size: 0.82rem; font-weight: 400; color: var(--color-text-secondary); background: var(--color-bg); transition: all var(--duration-fast) var(--ease-smooth); }
     .skill:hover { border-color: var(--color-text-primary); color: var(--color-text-primary); }
     
-    /* Portfolio Asymmetric Grid Layout System */
+    /* Asymmetric Grid Dashboard Portfolio System */
     .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5rem 2.5rem; }
     .port-item { background: transparent; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; text-decoration: none; }
     .port-thumb { width: 100%; aspect-ratio: 16/10; background: var(--color-surface); overflow: hidden; border-radius: 8px; border: 1px solid var(--color-border); }
@@ -120,7 +116,7 @@
     .port-item.span-1 { grid-column: span 1; }
     .port-item.span-2 .port-thumb { aspect-ratio: 16/9; }
 
-    /* Lightbox Modal System for Project Slideshow Slides */
+    /* Lightbox Modal Slider System */
     .lightbox { position: fixed; inset: 0; z-index: 1000; background: rgba(10, 10, 10, 0.96); display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity var(--duration-base) var(--ease-smooth); }
     .lightbox.active { display: flex; opacity: 1; }
     .lightbox-content { position: relative; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center; }
@@ -133,9 +129,8 @@
     .lightbox-btn:hover { background: rgba(255,255,255,0.2); }
     .lightbox-prev { left: -65px; }
     .lightbox-next { right: -65px; }
-    @media(max-width:768px){ .lightbox-prev { left: 0; } .lightbox-next { right: 0; } .lightbox-btn { border-radius:0; width:40px; height:60px; background:rgba(0,0,0,0.5); } }
 
-    /* Experience System Component Framework */
+    /* Experience System Layout Base */
     .exp-list { display: flex; flex-direction: column; gap: 1.5rem; max-width: 900px; }
     .exp-item { display: grid; grid-template-columns: 72px 1fr; gap: 2rem; background: var(--color-bg); border: 1px solid var(--color-border); padding: 2.2rem; border-radius: 8px; align-items: center; transition: border-color var(--duration-fast) var(--ease-smooth); }
     .exp-item:hover { border-color: var(--color-text-secondary); }
@@ -145,7 +140,7 @@
     .exp-role-row { font-size: 0.85rem; color: var(--color-text-secondary); margin-bottom: 12px; font-weight: 400; }
     .exp-desc { font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.6; font-weight: 300; }
     
-    /* Behance Card */
+    /* Behance Section */
     #behance { background: url('Images/Medsos%20BG.png') center/cover no-repeat; position: relative; }
     #behance::before { content: ""; position: absolute; inset: 0; background: var(--behance-overlay); z-index: 0; }
     #behance > * { position: relative; z-index: 1; }
@@ -170,7 +165,7 @@
     .behance-proj-label { font-size: 0.72rem; font-weight: 500; color: #fff; opacity: 0; transition: opacity var(--duration-fast) var(--ease-smooth); }
     .behance-proj:hover .behance-proj-label { opacity: 1; }
 
-    /* Motion Graphics Grid System with Clean Parameters */
+    /* Motion Graphics Grid System Components */
     .motion-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
     .motion-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 6px; overflow: hidden; }
     .motion-embed { position: relative; padding-bottom: 56.25%; height: 0; background: #000000; }
@@ -209,7 +204,7 @@
     .slider-arrow:hover { border-color: var(--color-text-primary); color: var(--color-text-primary); }
     .slider-count { font-size: 0.78rem; color: var(--color-text-secondary); }
 
-    /* Video Production Grid */
+    /* Video Production Grid Components */
     .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
     .video-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 6px; overflow: hidden; }
     .video-embed { position: relative; padding-bottom: 56.25%; height: 0; background: #000000; }
@@ -219,7 +214,7 @@
     .video-desc { font-size: 0.8rem; color: var(--color-text-secondary); }
     .video-type { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-primary); border: 1px solid var(--color-border); padding: 4px 10px; border-radius: 2px; }
     
-    /* Lead Conversion Layout Area */
+    /* Contact Space Area */
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
     .contact-desc { font-size: 1rem; color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 3rem; max-width: 400px; }
     .contact-list { list-style: none; display: flex; flex-direction: column; border-top: 1px solid var(--color-border); }
@@ -243,7 +238,6 @@
     .btn-send { display: inline-flex; align-items: center; gap: 10px; background: var(--color-text-primary); color: var(--color-bg); border: none; padding: 13px 28px; border-radius: 4px; font-size: 0.88rem; font-weight: 500; cursor: pointer; transition: opacity var(--duration-fast) var(--ease-smooth); }
     .btn-send:hover { opacity: 0.85; }
     
-    /* Footer Style */
     footer { border-top: 1px solid var(--color-border); background: var(--color-surface); }
     .footer-inner { max-width: var(--max); margin: 0 auto; padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
     .footer-brand { font-size: 0.9rem; font-weight: 500; color: var(--color-text-primary); text-decoration: none; }
@@ -252,7 +246,7 @@
     .footer-links a { font-size: 0.78rem; color: var(--color-text-secondary); text-decoration: none; transition: color var(--duration-fast) var(--ease-smooth); }
     .footer-links a:hover { color: var(--color-text-primary); }
 
-    /* Responsive Queries */
+    /* Responsive Specifications */
     @media (max-width: 1024px) {
       .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
       .port-item.span-2 { grid-column: span 2; }
@@ -287,7 +281,7 @@
 <nav id="navbar">
   <div class="nav-inner">
     <a href="#" class="nav-logo-block">
-      <img src="Images/logo_black.png" alt="Logo" class="nav-logo-img" id="navLogo">
+      <img src="Images/logo_black.png" alt="Logo" class="nav-logo-img" id="navLogo"> 
       <span class="nav-logo-text">Devara Wiraka</span>
     </a>
     <div class="nav-right">
@@ -324,11 +318,11 @@
     </div>
     
     <div class="hero-vertical-stack" id="heroStack">
-      <div class="v-card v-c1" onclick="openLightbox(1)"><img src="Images/Medsos%20GMB.png" alt="Garda Muda Indonesia Block"></div>
-      <div class="v-card v-c2" onclick="openLightbox(2)"><img src="Images/Medsos%20tedx.png" alt="TEDxUNJ Publication Unit"></div>
-      <div class="v-card v-c3" onclick="openLightbox(0)"><img src="Images/Medsos%20UB.png" alt="Ubah Bareng Campaign Block"></div>
-      <div class="v-card v-c4" onclick="openLightbox(3)"><img src="Images/Medsos%20BG.png" alt="Nasi Bang Tega Social Pack"></div>
-      <div class="v-card v-c5" onclick="openLightbox(1)"><img src="Images/Medsos%20GMB.png" alt="Creative Production Component"></div>
+      <div class="v-card v-c1" onclick="openLightbox(1)"><img src="Images/Medsos%20GMB.png" alt="Garda Muda Indonesia Asset"></div> 
+      <div class="v-card v-c2" onclick="openLightbox(2)"><img src="Images/Medsos%20tedx.png" alt="TEDxUNJ Publication Unit"></div> 
+      <div class="v-card v-c3" onclick="openLightbox(0)"><img src="Images/Medsos%20UB.png" alt="Ubah Bareng Grid View"></div> 
+      <div class="v-card v-c4" onclick="openLightbox(3)"><img src="Images/Medsos%20BG.png" alt="Nasi Bang Tega Feeds"></div> 
+      <div class="v-card v-c5" onclick="openLightbox(1)"><img src="Images/Medsos%20GMB.png" alt="Creative Campaign Pack"></div> 
     </div>
   </div>
 </section>
@@ -342,7 +336,7 @@
     <div class="about-cols reveal">
       <div class="about-photo-box">
         <div class="about-photo-frame">
-          <img src="Images/Fotosaya.png.png" alt="Devara Wiraka Profile Portrait">
+          <img src="Images/Fotosaya.png.png" alt="Devara Wiraka Identity Profile">
         </div>
       </div>
       <div class="about-text-col">
@@ -371,7 +365,7 @@
     <div class="portfolio-grid reveal">
       
       <div class="port-item span-2" onclick="openLightbox(0)">
-        <div class="port-thumb"><img src="Images/Ubah-Bareng%20(5).jpg" alt="Social Identity Ubah Bareng Gallery Asset"></div> [cite: 363]
+        <div class="port-thumb"><img src="Images/Ubah-Bareng%20(5).jpg" alt="Social Identity Ubah Bareng Showcase"></div> 
         <div class="port-info">
           <div class="port-tag">CONTENT</div>
           <div class="port-title">Social Media Identity — Ubah Bareng</div>
@@ -380,7 +374,7 @@
       </div>
 
       <div class="port-item span-1" onclick="openLightbox(1)">
-        <div class="port-thumb"><img src="Images/GMI%20(1).png" alt="Creative Campaign GMI Production Grid Item"></div> [cite: 363]
+        <div class="port-thumb"><img src="Images/GMI%20(1).png" alt="Creative Campaign GMI Showcase"></div> 
         <div class="port-info">
           <div class="port-tag">CONTENT</div>
           <div class="port-title">Creative Campaign Graphic — GMI</div>
@@ -389,7 +383,7 @@
       </div>
 
       <div class="port-item span-1" onclick="openLightbox(2)">
-        <div class="port-thumb"><img src="Images/TEDxUNJ-2025%20(4).jpg" alt="TEDxUNJ Exhibition Asset Frame"></div> [cite: 363]
+        <div class="port-thumb"><img src="Images/TEDxUNJ-2025%20(4).jpg" alt="TEDxUNJ Exhibition Display"></div> 
         <div class="port-info">
           <div class="port-tag">CONTENT</div>
           <div class="port-title">Social Media Post — TEDxUNJ 2025</div>
@@ -398,7 +392,7 @@
       </div>
 
       <div class="port-item span-2" onclick="openLightbox(3)">
-        <div class="port-thumb"><img src="Images/Nasi%20Bang%20Tega%20(7).jpeg" alt="Nasi Bang Tega Corporate Project Asset"></div> [cite: 363]
+        <div class="port-thumb"><img src="Images/Nasi%20Bang%20Tega%20(7).jpeg" alt="Nasi Bang Tega Brand Dashboard Item"></div> 
         <div class="port-info">
           <div class="port-tag">CONTENT</div>
           <div class="port-title">Social Media Design — Nasi Bang Tega</div>
@@ -415,7 +409,7 @@
   <button class="lightbox-btn lightbox-prev" onclick="changeSlide(-1)">&#8592;</button>
   <div class="lightbox-content">
     <div class="lightbox-img-wrap">
-      <img id="lightboxImg" class="lightbox-img" src="" alt="Gallery Active View">
+      <img id="lightboxImg" class="lightbox-img" src="" alt="Active Component Rendering">
     </div>
     <div id="lightboxCaption" class="lightbox-caption"></div>
   </div>
@@ -432,7 +426,7 @@
     <div class="exp-list reveal">
       
       <div class="exp-item">
-        <div class="exp-logo-box"><img src="Images/logo_kkp_BPPMHKP.png.png" alt="Ministry Level Brand Authority Verification Badge"></div> [cite: 363]
+        <div class="exp-logo-box"><img src="Images/logo_kkp_BPPMHKP.png.png" alt="Ministry Brand Authority Validation Badge"></div> 
         <div>
           <div class="exp-company">KKP RI — Ministry of Marine Affairs and Fisheries</div>
           <div class="exp-role-row">Staff — Divisi Kerjasama &amp; Humas, BPPMHKP &middot; Januari — Mei 2026</div>
@@ -441,7 +435,7 @@
       </div>
 
       <div class="exp-item">
-        <div class="exp-logo-box"><img src="Images/logo_mediacenter_unj.png.png" alt="Media Center Organization Logo Node"></div> [cite: 363]
+        <div class="exp-logo-box"><img src="Images/logo_mediacenter_unj.png.png" alt="Media Center Identity Badge"></div> 
         <div>
           <div class="exp-company">Media Center, Faculty of Social Sciences — UNJ</div>
           <div class="exp-role-row">General Chairperson &middot; 2024 — 2025</div>
@@ -450,7 +444,7 @@
       </div>
 
       <div class="exp-item">
-        <div class="exp-logo-box"><img id="logoAbhinaya" src="Images/logo_abhinaya_aksata%20BLUE.png" alt="Abhinaya Aksata Primary Token Branding Logo"></div>
+        <div class="exp-logo-box"><img id="logoAbhinaya" src="Images/logo_abhinaya_aksata%20BLUE.png" alt="Abhinaya Aksata Identity Token Badge"></div>
         <div>
           <div class="exp-company">Abhinaya Aksata Nusantara Foundation</div>
           <div class="exp-role-row">Foundation Supervisory Board &amp; Media Team &middot; 2023 — Present</div>
@@ -484,9 +478,9 @@
         <a href="https://www.behance.net/devaraaw" target="_blank" rel="noopener" class="behance-visit-btn">Visit Profile</a>
       </div>
       <div class="behance-projects">
-        <a href="https://www.behance.net/devaraaw" target="_blank" rel="noopener" class="behance-proj"><img src="Images/Medsos%20UB.png" alt="Behance Case Node 1"><div class="behance-proj-overlay"><span class="behance-proj-label">View on Behance ↗</span></div></a> [cite: 363]
-        <a href="https://www.behance.net/devaraaw" target="_blank" rel="noopener" class="behance-proj"><img src="Images/Medsos%20tedx.png" alt="Behance Case Node 2"><div class="behance-proj-overlay"><span class="behance-proj-label">View on Behance ↗</span></div></a> [cite: 363]
-        <a href="https://www.behance.net/devaraaw" target="_blank" rel="noopener" class="behance-proj"><img src="Images/Medsos%20GMB.png" alt="Behance Case Node 3"><div class="behance-proj-overlay"><span class="behance-proj-label">View on Behance ↗</span></div></a> [cite: 363]
+        <a href="https://www.behance.net/devaraaw" target="_blank" rel="noopener" class="behance-proj"><img src="Images/Medsos%20UB.png" alt="Behance Production Unit 1"><div class="behance-proj-overlay"><span class="behance-proj-label">View on Behance ↗</span></div></a> 
+        <a href="https://www.behance.net/devaraaw" target="_blank" rel="noopener" class="behance-proj"><img src="Images/Medsos%20tedx.png" alt="Behance Production Unit 2"><div class="behance-proj-overlay"><span class="behance-proj-label">View on Behance ↗</span></div></a> 
+        <a href="https://www.behance.net/devaraaw" target="_blank" rel="noopener" class="behance-proj"><img src="Images/Medsos%20GMB.png" alt="Behance Production Unit 3"><div class="behance-proj-overlay"><span class="behance-proj-label">View on Behance ↗</span></div></a> 
       </div>
     </div>
   </div>
@@ -590,7 +584,6 @@
 </footer>
 
 <script>
-  // Array Gallery Lightbox Slideshow Meta Data Mapper
   const projectGallery = [
     { src: 'Images/Ubah-Bareng%20(5).jpg', title: 'Social Media Identity — Ubah Bareng', desc: 'Social media identity for a youth democracy community — built to reach and resonate with young Indonesian audiences.' },
     { src: 'Images/GMI%20(1).png', title: 'Creative Campaign Graphic — GMI', desc: 'Campaign graphics for an NGO empowering local communities across Indonesia — visuals that bring the regions to life.' },
@@ -646,7 +639,7 @@
     }
   });
 
-  // Staggered Stack Fan-Out Kinetic Initialization Pipeline
+  // Balanced 1080x1350 Fan-Out Initialization Pipeline
   document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('#heroStack .v-card');
     const offsets = window.innerWidth <= 768 ? [-90, -45, 0, 45, 90] : [-240, -120, 0, 120, 240];
